@@ -22,6 +22,10 @@ Reproducibility is the ability to regenerate results (e.g. tables, figures) usin
 
 ![](images/reproducibility.png)
 
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Reproducibility {auto-animate=true}
 
 :::: {.columns}
@@ -62,11 +66,19 @@ Why?
 
 ::::
 
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Reproducible Analytical Pipelines
 
 **RAP**: Systematic approach. Every step (end-to-end) is transparent, automated and repeatable.
 
 ![](images/rap.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
 
 ## Discrete-event simulation (DES)
 
@@ -74,11 +86,19 @@ DES model a system as a sequence of events. For example, patients arriving, wait
 
 ![](videos/vidigi_des.gif)
 
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Discrete-event simulation (DES) {auto-animate=true}
 
 DES incorporate uncertainty - instead of e.g., fixed frequency of arrivals, sample from statistical distribution.
 
 ![](images/samples.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
 
 ## Discrete-event simulation (DES) {auto-animate=true}
 
@@ -109,25 +129,198 @@ produces different results.
 
 ::::
 
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## How to construct DES as RAP?
 
 **Resource 1: NHS Levels of RAP**
 
-<iframe width="100%" height="500" src="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/" title="NHS RAP Community of Practice: Levels of RAP"></iframe>
+[![](images/levels_of_rap.png)](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## How to construct DES as RAP?
+
+**Resource 1: NHS Levels of RAP**
+
+::: {style="font-size: 60%"}
+
+**🥉 Baseline** - RAP fundamentals offering resilience against future change.
+
+* Data produced by code in an open-source language (e.g., Python, R).	
+* Code is version controlled (see Git basics and using Git collaboratively guides).	
+* Repository includes a README.md file (or equivalent) that clearly details steps a user must follow to reproduce the code (use NHS Open Source Policy section on Readmes as a guide).	
+* Code has been peer reviewed.	
+* Code is published in the open and linked to & from accompanying publication (if relevant).
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## How to construct DES as RAP?
+
+**Resource 1: NHS Levels of RAP**
+
+::: {style="font-size: 60%"}
+
+**🥈 Silver** - Implementing best practice by following good analytical and software engineering standards. Meeting all of the 🥉 baseline requirements, plus:
+
+* Outputs are produced by code with minimal manual intervention.	
+* Code is well-documented including user guidance, explanation of code structure  methodology and docstrings for functions.	
+* Code is well-organised following standard directory format.	
+* Reusable functions and/or classes are used where appropriate.	
+* Code adheres to agreed coding standards (e.g PEP8, style guide for Pyspark).	
+* Pipeline includes a testing framework (unit tests, back tests).	
+* Repository includes dependency information (e.g. requirements.txt, PipFile, environment.yml).	
+* Logs are automatically recorded by the pipeline to ensure outputs are as expected.	
+* Data is handled and output in a Tidy data format.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## How to construct DES as RAP?
+
+**Resource 1: NHS Levels of RAP**
+
+::: {style="font-size: 60%"}
+
+**🥇 Gold** - Analysis as a product to further elevate your analytical work and enhance its reusability to the public. Meeting all of the 🥉 baseline and 🥈 silver requirements, plus:
+
+* Code is fully packaged.	
+* Repository automatically runs tests etc. via CI/CD or a different integration/deployment tool e.g. GitHub Actions.	
+* Process runs based on event-based triggers (e.g., new data in database) or on a schedule.
+* Changes to the RAP are clearly signposted. E.g. a changelog in the package, releases etc. (See gov.uk info on Semantic Versioning).
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## How to construct DES as RAP?
+
+**Resource 2: STARS DES reproducibility recommendations**
+
+[![](images/jos_reproducibility_paper.png)](https://doi.org/10.1080/17477778.2025.2552177)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
 
 ## How to construct DES as RAP?
 
 **Resource 2: DES reproducibility recommendations**
 
-<embed src="pdf/jos_reproducibility_paper.pdf" width="100%" height="500" />
+![](images/reproduced_studies.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+---
+
+:::: {.columns}
+
+::: {.column width="35%"}
+
+<h2 style="display: inline" data-id="my-heading">How to construct DES as RAP?</h2>
+
+**Resource 2: STARS DES reproducibility recommendations**
+
+:::
+
+::: {.column width="65%"}
+
+![](images/stars_rec_reproducibility.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+---
+
+:::: {.columns}
+
+::: {.column width="35%"}
+
+<h2 style="display: inline" data-id="my-heading">How to construct DES as RAP?</h2>
+
+**Resource 2: STARS DES reproducibility recommendations**
+
+:::
+
+::: {.column width="65%"}
+
+![](images/stars_rec_troubleshoot.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## DES RAP Book
+
+<iframe width="100%" height="500" src="https://pythonhealthdatascience.github.io/des_rap_book/" title="DES RAP Book"></iframe>
+
+<!--
 
 ## Consolidated criteria
 
-Grid? Diagram? That aligns with pages.
+* Version control
+* Dependency management
+* **Package:** Organised standard structure - ideally a package.
+* **Code structure:** Functions/classes, minimise code duplication.
+* **Parameters from file/script:** Avoid hard coded parameters and data tidy.
+* **Randomness**: seed
+* Logs
+* **Performance measures etc.:** Include code for all outputs... ensure clarity and consistency in model result tables...
+* **Parallel processing:** Optimise run time
+* **Scenario and sensitivity:** Provide code for all scenarios and sensitivity analyes... save to file... avoid excessive output files... address large files...
+* **Tables and figures:** include code to generate tables, figures, other reported results... save to file...
+* **Full run:** ensure param correct... output produced code minimal manual itnervention
+* Tests
+* Linting
+* Docstrings
+* GitHub actions
+* Documentation
+* Code review
+* Licensing
+* Changelog
+* Sharing and archiving
 
-## Book/Site
+Other DES stuff:
 
-We produced a book... show book... presentation... top level overview of what we cover etc... go to book for full thing...
+* Conceptual modelling
+* Input modelling
+* Input data management
+* Parameter validation
+* Entity generation
+* Entity processing
+* Initialisation bias
+* Replications
+* Length of warm-up
+* Number of replications
+* Verification and validation
+* Mathematical proof of correctness
+* QA
+* Citation
+-->
 
 ## Version control
 
