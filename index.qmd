@@ -278,54 +278,383 @@ produces different results.
 
 <iframe width="100%" height="500" src="https://pythonhealthdatascience.github.io/des_rap_book/" title="DES RAP Book"></iframe>
 
-<!--
+::: {.notes}
 
-## Consolidated criteria
+* Python and R
 
-* Version control
-* Dependency management
-* **Package:** Organised standard structure - ideally a package.
-* **Code structure:** Functions/classes, minimise code duplication.
-* **Parameters from file/script:** Avoid hard coded parameters and data tidy.
-* **Randomness**: seed
-* Logs
-* **Performance measures etc.:** Include code for all outputs... ensure clarity and consistency in model result tables...
-* **Parallel processing:** Optimise run time
-* **Scenario and sensitivity:** Provide code for all scenarios and sensitivity analyes... save to file... avoid excessive output files... address large files...
-* **Tables and figures:** include code to generate tables, figures, other reported results... save to file...
-* **Full run:** ensure param correct... output produced code minimal manual itnervention
-* Tests
-* Linting
-* Docstrings
-* GitHub actions
-* Documentation
-* Code review
-* Licensing
-* Changelog
-* Sharing and archiving
+:::
 
-Other DES stuff:
-
-* Conceptual modelling
-* Input modelling
-* Input data management
-* Parameter validation
-* Entity generation
-* Entity processing
-* Initialisation bias
-* Replications
-* Length of warm-up
-* Number of replications
-* Verification and validation
-* Mathematical proof of correctness
-* QA
-* Citation
--->
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
 
 ## Version control
 
-TODO
+**Version control** allows you to track files over time: what changes, when, and by whom.
+
+* Roll back if a change breaks the model.
+* Link results to specific versions of code.
+* Supports collaboration and sharing.
+
+Most popular: **GitHub**
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Version control: GitHub
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/github_create_repo.png)
+
+:::
+
+::: {.column width="50%"}
+
+![](images/github_branch.png)
+
+:::
+
+::::
+
+::: {.notes}
+
+* Book walks through how to do this - create a repository, make commits, work in branches, and set up organisations.
+* It's best to use GitHub from the start of a project if possible, rather than halfway through.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
 
 ## Environments
 
-TODO
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/env_time_capsule.png){width=90%}
+
+:::
+
+::: {.column width=50%}
+
+::: {.fragment}
+
+![](images/env_consistent.png)
+
+:::
+
+:::
+
+::::
+
+::: {.fragment}
+
+![](images/env_isolate.png){width=70%}
+
+:::
+
+::: {.notes}
+
+Acts like a time capsule, return to project later and run with same packages and version.
+
+Isolate environments for different projects, so each can own set of packages and version of python or R.
+
+Dependency management also important for collaboration, so everyone on team uses same set-up.
+
+:::
+
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Environments: Python
+
+::: {style="font-size: 80%"}
+
+| Tool | Python version | Dependency files | Speed |
+| - | - | - | - |
+| `venv` | ❌ No | `requirements.txt` | ⚡ Fast |
+| `conda` | ✅ Yes | `environment.yml` | 🐢 Slow |
+| `mamba` | ✅ Yes | `environment.yml` | 🚀 Very fast |
+| `poetry` | ⚠️ Partial | `pyproject.toml` & `poetry.lock` | 🐢 Slow |
+| `uv` | ✅ Yes | `pyproject.toml` & `uv.lock` | ✅ Yes |
+
+<br>
+
+**Key question:** Does the tool manage the **Python version**?
+
+:::
+
+::: {.notes}
+
+Recommendation? Ideally, managing Python version. So not venv. And ideally conda/mamba/uv. Although poetry good too - it can select among installed versions of Python, but cannot install new Python version itself.
+
+Although disclaimer, NHS audience, know its not always a choice can make, may have own rationale for what choose etc.
+
+In book, we provide instructions on all, but mainly focus on conda/mamba.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Environments: Python
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Main packages:
+
+```{.bash}
+pandas==2.3.1
+plotly==6.3.0
+pytest==8.4.1
+simpy==4.1.1
+```
+
+:::
+
+::: {.column width="50%"}
+
+Full snapshot:
+
+```{.bash}
+exceptiongroup==1.3.1
+iniconfig==2.3.0
+narwhals==2.22.1
+numpy==2.2.6
+packaging==26.2
+pandas==2.3.1
+plotly==6.3.0
+pluggy==1.6.0
+Pygments==2.20.0
+pytest==8.4.1
+python-dateutil==2.9.0.post0
+pytz==2026.2
+simpy==4.1.1
+six==1.17.0
+tomli==2.4.1
+typing_extensions==4.15.0
+tzdata==2026.2
+```
+
+:::
+
+::::
+
+::: {.notes}
+
+Another thing to consider: main packages v.s., full snapshot
+
+On left are main packages for a project. When set up.. pip install this, pip install that.
+
+On right, is full environment. All dependencies of installed packages and so on.
+
+Reuse/reproduction... broken env... easier with list main... prioritise that... don't just scrape env save... from start, definied key list... etc
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Environments: R
+
+::: {style="font-size: 80%"}
+
+| Tool | Install + switch between R? | Packages? |
+| - | - | - |
+| `rig` | ✅ Yes | ❌ No |
+| `renv` | ❌ No | ✅ Yes |
+| `rv` (in development) | ❌ No | ✅ Yes |
+
+:::
+
+::: {.notes}
+
+rv in development
+typically people use renv
+renv only manages packages
+to manage version, can use rig.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Environments: R
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+`DESCRIPTION`:
+
+```{.r}
+Imports:
+    dplyr
+    future
+```
+
+:::
+
+::: {.column width="50%"}
+
+`renv.lock`:
+
+```{.r}
+{
+  "R": {
+    "Version": "4.4.1",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "dplyr": {
+      "Package": "dplyr",
+      "Version": "1.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "future": {
+      "Package": "future",
+      "Version": "1.34.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "cli": {
+      "Package": "cli",
+      "Version": "3.6.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "cccccccccccccccccccccccccccccccc"
+    },
+    "glue": {
+      "Package": "glue",
+      "Version": "1.8.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "dddddddddddddddddddddddddddddddd"
+    },
+    "lifecycle": {
+      "Package": "lifecycle",
+      "Version": "1.0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    },
+    "magrittr": {
+      "Package": "magrittr",
+      "Version": "2.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ffffffffffffffffffffffffffffffff"
+    },
+    "pillar": {
+      "Package": "pillar",
+      "Version": "1.9.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "11111111111111111111111111111111"
+    },
+    "rlang": {
+      "Package": "rlang",
+      "Version": "1.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "22222222222222222222222222222222"
+    },
+    "tibble": {
+      "Package": "tibble",
+      "Version": "3.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "33333333333333333333333333333333"
+    },
+    "tidyselect": {
+      "Package": "tidyselect",
+      "Version": "1.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "44444444444444444444444444444444"
+    },
+    "vctrs": {
+      "Package": "vctrs",
+      "Version": "0.6.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "55555555555555555555555555555555"
+    },
+    "digest": {
+      "Package": "digest",
+      "Version": "0.6.36",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "66666666666666666666666666666666"
+    },
+    "globals": {
+      "Package": "globals",
+      "Version": "0.16.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "77777777777777777777777777777777"
+    },
+    "listenv": {
+      "Package": "listenv",
+      "Version": "0.9.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "88888888888888888888888888888888"
+    },
+    "parallelly": {
+      "Package": "parallelly",
+      "Version": "1.38.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "99999999999999999999999999999999"
+    }
+  }
+}
+```
+
+:::
+
+::::
+
+::: {.notes}
+
+As mentioned in Python
+
+By default using renv, you'll be encourage to take full environment snapshots. renv.lock. that can be really painful to recreate. we encourage DESCRIPTION file list main packages and renv.lock capture all. more info on setting this up in book. but wy?
+
+clear requirements, summary main packages
+consistent with package development
+alternative for recreation - by default, renv::sync(), using lock, but can run into issues, struggling, may need to rebuild from scratch, could go through scripts and looking at imports, better yet, if already provided in a DESCRIPTION file.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Structuring as a package
+
+**Package:** Structured collection of code, data and documentation.
+
+Easy to distribute, install and reuse across projects.
