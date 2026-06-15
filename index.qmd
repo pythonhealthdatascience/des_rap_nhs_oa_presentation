@@ -106,7 +106,7 @@ DES incorporate uncertainty - instead of e.g., fixed frequency of arrivals, samp
 
 :::: {.columns}
 
-::: {.column width=50%}
+::: {.column}
 
 ![](images/samples.png)
 
@@ -121,7 +121,7 @@ produces different results.
 
 :::
 
-::: {.column width=50%}
+::: {.column}
 
 ![](images/varying_outputs.png)
 
@@ -306,13 +306,13 @@ Most popular: **GitHub**
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column}
 
 ![](images/github_create_repo.png)
 
 :::
 
-::: {.column width="50%"}
+::: {.column}
 
 ![](images/github_branch.png)
 
@@ -335,13 +335,13 @@ Most popular: **GitHub**
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column}
 
 ![](images/env_time_capsule.png){width=90%}
 
 :::
 
-::: {.column width=50%}
+::: {.column}
 
 ::: {.fragment}
 
@@ -410,7 +410,7 @@ In book, we provide instructions on all, but mainly focus on conda/mamba.
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column}
 
 Main packages:
 
@@ -423,7 +423,7 @@ simpy==4.1.1
 
 :::
 
-::: {.column width="50%"}
+::: {.column}
 
 Full snapshot:
 
@@ -496,7 +496,7 @@ to manage version, can use rig.
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column}
 
 `DESCRIPTION`:
 
@@ -508,7 +508,7 @@ Imports:
 
 :::
 
-::: {.column width="50%"}
+::: {.column}
 
 `renv.lock`:
 
@@ -655,6 +655,138 @@ alternative for recreation - by default, renv::sync(), using lock, but can run i
 
 ## Structuring as a package
 
-**Package:** Structured collection of code, data and documentation.
+**Package:** Structured collection of code, data and docs.
 
 Easy to distribute, install and reuse across projects.
+
+<br>
+
+:::: {.columns}
+
+::: {.column style="text-align: center;" .fragment}
+
+Python package:
+
+```text
+yourrepository
+├── yourpackage
+│   ├── __init__.py
+│   └── module1.py
+└── pyproject.toml
+```
+
+:::
+
+::: {.column style="text-align: center;" .fragment}
+
+R package:
+
+```text
+yourrepository
+├── R
+│   └── module1.R
+├── DESCRIPTION
+├── man/
+└── NAMESPACE
+```
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Structuring as a package: why? 
+
+::: {.incremental .show-first}
+
+* Use the model anywhere after install.
+* Encourages a standard project structure.
+* Separates model and analysis code.
+* Improves maintainability and reuse.
+* Supports automated testing.
+* R: Workflow helps like `usethis` for automatic set-up of licences, READMEs, tests, vignettes, GitHub Actions and more.
+
+:::
+
+::: {.notes}
+
+Benefits:
+
+The model is installed in our environment and can then be easily used anywhere else in our directory (or even from other directories) without needing to specify a system path.
+
+It encourages us to create a well-organised repository following standardised established package structures.
+
+It helps keep the model and analysis code separate, improving maintainability, reusability, and reducing the risk of unintended side effects.
+
+It supports automated testing frameworks which can verify functionality.
+
+R benefits:
+
+Tools like devtools::document() and roxygen2 create documentation that can be accessed using ?functionname.
+
+Workflow helpers like usethis automate setup of licences, READMEs, tests, vignettes, GitHub Actions and more.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Structuring as a package: downside
+
+😞: More set-up and learning at the start
+
+::: {.notes}
+
+Downside:
+
+Complexity. Beginners, setting up, lots to learn. For quick, exploratory analyses that won’t be reused or shared, a full package structure may be more effort than necessary. In those cases, a well-organised folder with a few files might be perfectly sufficient. we generally recommend investing the time to adopt a package structure early on - it’s usually easier to start that way, and the benefits tend to outweigh the initial effort.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Structuring as a package
+
+:::: {.columns}
+
+::: {.column}
+
+![](images/package_python.png)
+
+:::
+
+::: {.column}
+
+![](images/package_r.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Structuring as a package
+
+:::: {.columns}
+
+::: {.column}
+
+[![](images/pydesrap_template.png)](https://github.com/pythonhealthdatascience/pydesrap_template)
+
+:::
+
+::: {.column}
+
+[![](images/rdesrap_template.png)](https://github.com/pythonhealthdatascience/rdesrap_template)
+
+:::
+
+::::
