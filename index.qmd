@@ -1,0 +1,138 @@
+---
+title: Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R
+author: Amy Heather
+format:
+  revealjs:
+    footer: "DES RAP Book: <https://pythonhealthdatascience.github.io/des_rap_book/>"
+    include-in-header:
+      - text: <script src="javascript/incremental-show-first.js"></script>
+---
+
+## Reproducibility {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width=65%}
+
+Reproducibility is the ability to regenerate results (e.g. tables, figures) using the provided code and data.
+
+:::
+
+::::
+
+![](images/reproducibility.png)
+
+## Reproducibility {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width=65%}
+
+Reproducibility is the ability to regenerate results (e.g. tables, figures) using the provided code and data.
+
+:::
+
+::: {.column width=35%}
+
+![](images/reproducibility.png)
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width=20%}
+
+Why?
+
+:::
+
+::: {.column width=80%}
+
+::: {.incremental .show-first}
+* Reuse your own work more easily.
+* Improve code clarity and quality
+* Save time when revisiting analyses.
+* Build trust.
+* Help others verify and reuse your work.
+:::
+
+:::
+
+::::
+
+## Reproducible Analytical Pipelines
+
+**RAP**: Systematic approach. Every step (end-to-end) is transparent, automated and repeatable.
+
+![](images/rap.png)
+
+## Discrete-event simulation (DES)
+
+DES model a system as a sequence of events. For example, patients arriving, waiting, receiving treatment, and leaving.
+
+![](videos/vidigi_des.gif)
+
+## Discrete-event simulation (DES) {auto-animate=true}
+
+DES incorporate uncertainty - instead of e.g., fixed frequency of arrivals, sample from statistical distribution.
+
+![](images/samples.png)
+
+## Discrete-event simulation (DES) {auto-animate=true}
+
+DES incorporate uncertainty - instead of e.g., fixed frequency of arrivals, sample from statistical distribution.
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+![](images/samples.png)
+
+::: {style="text-align: right;"}
+
+<br>
+
+This means each run <br>
+produces different results.
+
+:::
+
+:::
+
+::: {.column width=50%}
+
+![](images/varying_outputs.png)
+
+:::
+
+::::
+
+## How to construct DES as RAP?
+
+**Resource 1: NHS Levels of RAP**
+
+<iframe width="100%" height="500" src="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/" title="NHS RAP Community of Practice: Levels of RAP"></iframe>
+
+## How to construct DES as RAP?
+
+**Resource 2: DES reproducibility recommendations**
+
+<embed src="pdf/jos_reproducibility_paper.pdf" width="100%" height="500" />
+
+## Consolidated criteria
+
+Grid? Diagram? That aligns with pages.
+
+## Book/Site
+
+We produced a book... show book... presentation... top level overview of what we cover etc... go to book for full thing...
+
+## Version control
+
+TODO
+
+## Environments
+
+TODO
