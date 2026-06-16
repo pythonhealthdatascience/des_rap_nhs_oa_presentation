@@ -10,6 +10,7 @@ format:
       - css/styles.css
 title-slide-attributes:
   data-visibility: hidden
+code-annotations: hover
 ---
 
 ::: {style="text-align:center;"}
@@ -299,6 +300,7 @@ produces different results.
 ::: {.notes}
 
 * Python and R
+* Mention the 4 example models
 
 :::
 
@@ -2171,11 +2173,52 @@ Relevant guidelines:
 
 ## Tests
 
+Guidance in DES RAP Book - and in our other resource:
+
+[![](images/testing_in_research.png)](https://pythonhealthdatascience.github.io/stars-testing-intro/)
+
+<https://pythonhealthdatascience.github.io/stars-testing-intro/>
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Tests
+
+Stuck for ideas? See example repositories
+
+* Python M/M/s model - <https://github.com/pythonhealthdatascience/pydesrap_mms>
+* R M/M/s model - <https://github.com/pythonhealthdatascience/rdesrap_mms>
+* Python stroke model - <https://github.com/pythonhealthdatascience/pydesrap_stroke>
+* R stroke model - <https://github.com/pythonhealthdatascience/rdesrap_stroke>
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
 ## Quality assurance
+
+::: {style="font-size: 80%"}
+
+Quality assurance (QA) is the formal, systematic process of ensuring your analysis meets appropriate standards of quality and is suitable for its intended use. It means **planning how you will check the work, carrying out those checks, and keeping clear evidence of what you did**.
+
+:::
+
+![](images/qa.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Quality assurance
+
+::: {style="font-size: 80%"}
+
+Example: QA in the [New Hospital Programme](https://connect.strategyunitwm.nhs.uk/nhp/project_information/) (The Strategy Unit).
+
+:::
+
+![](images/nhp_qa.png){fig-align="center"}
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2201,6 +2244,163 @@ Relevant guidelines:
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
+## Linting: style guides {auto-animate="true"}
+
+Set of rules and conventions for writing code.
+
+![](images/style_guides.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: style guides {auto-animate="true"}
+
+Set of rules and conventions for writing code.
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+Popular examples in Python:
+
+* [PEP-8](https://peps.python.org/pep-0008/)
+* [Google Python style guide](https://google.github.io/styleguide/pyguide.html)
+
+Popular examples in R:
+
+* [Tidyverse style guide](https://style.tidyverse.org/)
+* [Google R style guide](https://google.github.io/styleguide/Rguide.html)
+
+:::
+
+::: {.column width="40%"}
+
+![](images/style_guides.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: linters {auto-animate="true"}
+
+Analyse code for possible errors and style issues.
+
+![](images/linting.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: linters {auto-animate="true"}
+
+Analyse code for possible errors and style issues.
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+Popular examples in Python:
+
+* [pylint](https://pypi.org/project/pylint/)
+* [flake8](https://pypi.org/project/flake8/)
+* [ruff](https://pypi.org/project/ruff/)
+
+Popular in R:
+
+* [lintr](https://lintr.r-lib.org/)
+
+:::
+
+::: {.column width="40%"}
+
+![](images/linting.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: linters
+
+<br>
+
+Python: Run from the command line
+
+```{.python}
+pylint code.py
+```
+
+<br>
+
+R: Run from the R console
+
+```{.r}
+lintr::lint("code.R")
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: code formatters {auto-animate="true"}
+
+Automatically format your code.
+
+![](images/code_formatters.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: code formatters {auto-animate="true"}
+
+Automatically format your code.
+
+:::: {.columns}
+
+::: {.column width='60%'}
+
+Popular examples in Python:
+
+* [ruff](https://github.com/astral-sh/ruff)
+* [black](https://github.com/psf/black)
+
+Popular examples in R:
+
+* [styler](https://styler.r-lib.org/)
+* [formatR](https://yihui.org/formatr/)
+* [air](https://posit-dev.github.io/air/)
+
+:::
+
+::: {.column width='40%'}
+
+![](images/code_formatters.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Linting: Quarto
+
+[![](images/lintquarto.png)](https://lintquarto.github.io/lintquarto/)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Docstrings
 
 ::: {.pale-gold}
@@ -2211,6 +2411,85 @@ Relevant guidelines:
 * NHS Levels of RAP (🥈): Code is well-documented including user guidance, explanation of code structure & methodology and docstrings for functions.
 
 :::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Docstrings
+
+**In-line comments** clarify individual lines/sections of code when the logic is otherwise unclear.
+
+**Docstrings** explain the overall purpose of a code object.
+
+::: {.fragment}
+
+Why write docstrings?
+
+* Clarify and consistency.
+* Maintainability and reproducibility.
+* Documentation websites.
+* Interactive help systems.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Docstrings: Python
+
+Popular docstring styles: [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) and [google style](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings).
+
+NumPy style:
+
+```{.python}
+def estimate_wait_time(queue_length, avg_service_time):
+    """
+    Estimate the total wait time for all customers in the queue.
+
+    Parameters
+    ----------
+    queue_length : int or float
+        Number of customers currently in the queue.
+    avg_service_time : int or float
+        Average time taken to serve one customer.
+
+    Returns
+    -------
+    float
+        Estimated total wait time.
+    """
+    return queue_length * avg_service_time
+```
+
+::: {.notes}
+
+Varies between functions, classes, modules, tests, etc. Focus on function example.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Docstrings: R
+
+R docstrings always use [roxygen2](https://roxygen2.r-lib.org/) style.
+
+```{.r}
+#' Estimate the total wait time for all customers in the queue.
+#'
+#' @param queue_length numeric Number of customers currently in the queue.
+#' @param avg_service_time numeric Average time taken to serve one customer.
+#'
+#' @return numeric Estimated total wait time.
+#' @export
+
+estimate_wait_time <- function(queue_length, avg_service_time) {
+  queue_length * avg_service_time
+}
+```
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2230,6 +2509,136 @@ Relevant guidelines:
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
+## GitHub actions
+
+```{.yaml}
+name: Example action # <1>
+run-name: Example action # <1>
+
+on: # <2>
+  push: # <2>
+    branches: [main] # <2>
+
+jobs: # <3>
+  checkout-echo: # <3>
+    runs-on: ubuntu-latest # <4>
+    permissions: # <5>
+      contents: read # <5>
+    steps: # <6>
+      - name: Checkout # <6>
+        uses: actions/checkout@v4 # <6>
+      - name: Run basic echo command # <6>
+        run: echo "Hello from GitHub Actions!" # <6>
+```
+
+1. Name of workflow.
+2. Events that trigger workflow e.g., `push`, `pull_request`, `workflow_dispatch`.
+3. One or multiple jobs, can run sequentially or in parallel. 
+4. Operating system e.g., `ubuntu-latest`, `windows-latest`, `macos-latest`
+5. Access granted to workflow.
+6. Ordered tasks in a job.
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## GitHub actions
+
+Use GitHub actions for:
+
+* Tests
+* Test coverage
+* Linting
+* Documentation
+
+And more!
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## GitHub actions: tests (Python)
+
+```{.yaml}
+name: tests
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install python and dependencies
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## GitHub actions: tests (R)
+
+If structured as a package:
+
+```{.r}
+usethis::use_github_action("check-standard")
+```
+
+Example:
+
+```{.r}
+name: R-CMD-check.yaml
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  R-CMD-check:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
+
+      - uses: r-lib/actions/check-r-package@v2
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Documentation
 
 ::: {.pale-gold}
@@ -2242,6 +2651,116 @@ Relevant guidelines:
 * NHS Levels of RAP (🥈): Code is well-documented including user guidance, explanation of code structure & methodology and docstrings for functions.
 
 :::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Documentation: `README.md`
+
+::: {style="font-size: 50%"}
+
+* ✔️ &nbsp;&nbsp; **Title**
+
+* ✔️ &nbsp;&nbsp; **Summary** - describe project purpose and context.
+
+* ✔️ &nbsp;&nbsp; **Authors** - named contributors, their ORCIDs, and contact details.
+
+* ✔️ &nbsp;&nbsp; **Installation** - steps for setting up the environment.
+
+* ✔️ &nbsp;&nbsp; **How to run the model** - basic instructions for executing the simulation.
+
+* ✔️ &nbsp;&nbsp; **Reproduction instructions** - specific instructions on how to generate results from your report/publication.
+
+* ✔️ &nbsp;&nbsp; **Inputs** - description of the input data (as specified on the [Input data management page](../inputs/input_data.qmd)).
+
+* ✔️ &nbsp;&nbsp; **Project structure** - brief guide to main files and folders.
+
+* ✔️ &nbsp;&nbsp; **Run time and machine specifications** - typical simulation duration (with computer requirements where relevant).
+
+* ✔️ &nbsp;&nbsp; **Citation** - instructions for citing the project/repository.
+
+* ✔️ &nbsp;&nbsp; **Licence** - state the license used and point to the [LICENSE file](../sharing/licence.qmd).
+
+* ✔️ &nbsp;&nbsp; **Funding and affiliations** - relevant sources of funding, support and affiliation.
+
+* ✔️ &nbsp;&nbsp; **Acknowledgements** - credit external code or resources used, inspiration from other projects, and any assistance from individuals, large language models (e.g., ChatGPT, Perplexity) or tools that contributed to the work.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Documentation: `README.md`
+
+::: {style="font-size: 50%"}
+
+| Badge | Markdown |
+| - | - |
+| [![Licence](https://img.shields.io/badge/Licence-MIT-purple?&labelColor=gray)](https://github.com/pythonhealthdatascience/des_rap_book/blob/main/LICENSE) | `[![Licence](https://img.shields.io/badge/Licence-MIT-purple?&labelColor=gray)](https://github.com/pythonhealthdatascience/des_rap_book/`<br>`blob/main/LICENSE)` |
+| [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17094155.svg)](https://doi.org/10.5281/zenodo.17094155) | `[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17094155.svg)](https://doi.org/10.5281/zenodo.17094155)` |
+| [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--6596--3479-green?&logo=orcid&logoColor=white)](https://orcid.org/0000-0002-6596-3479) | `[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--6596--3479-green?&logo=orcid&logoColor=white)](https://orcid.org/0000-0002-6596-3479)` |
+| ![R 4.5.1](https://img.shields.io/badge/-R_4.5.1-blue?&logo=r&logoColor=white) | `![R 4.5.1](https://img.shields.io/badge/-R_4.5.1-blue?&logo=r&logoColor=white)` |
+| [![lint](https://github.com/pythonhealthdatascience/pydesrap_stroke/actions/workflows/lint.yaml/badge.svg)](https://github.com/pythonhealthdatascience/pydesrap_stroke/actions/workflows/lint.yaml) | `[![lint](https://github.com/pythonhealthdatascience/pydesrap_stroke/`<br>`actions/workflows/lint.yaml/badge.svg)](https://github.com/pythonhealthdatascience/pydesrap_stroke/`<br>`actions/workflows/lint.yaml)` |
+: {tbl-colwidths="[30,70]"}
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Documentation: `README.md`
+
+All Contributors - <https://allcontributors.org/>
+
+![](images/allcontributors.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Documentation: `CONTRIBUTING.md`
+
+More technical information on working with the repository - for people who might join you in working on the code, using the code, and for yourself in the future.
+
+::: {.fragment}
+
+Example of things to cover:
+
+::: {style="font-size: 50%"}
+
+* ✔️ &nbsp;&nbsp; **Tests** - how to run tests.
+
+* ✔️ &nbsp;&nbsp; **Code style** - what style guide(s) are followed.
+
+* ✔️ &nbsp;&nbsp; **Linting** - how and which linters to run.
+
+* ✔️ &nbsp;&nbsp; **Releases** - if keeping a changelog and making releases,  
+  instructions on how to do that, what to update for a new release, etc.
+
+* ✔️ &nbsp;&nbsp; **Contributing** - if people come across the repository and wish to contribute or make suggestions, explain how (e.g., GitHub issue, fork, email, etc.).
+
+:::
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Documentation: Website
+
+[![](images/quarto.png)](https://quarto.org/)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Documentation: Website
+
+[![](images/great-docs.png)](https://posit-dev.github.io/great-docs/)
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
