@@ -2672,7 +2672,7 @@ Relevant guidelines:
 
 * ✔️ &nbsp;&nbsp; **Reproduction instructions** - specific instructions on how to generate results from your report/publication.
 
-* ✔️ &nbsp;&nbsp; **Inputs** - description of the input data (as specified on the [Input data management page](../inputs/input_data.qmd)).
+* ✔️ &nbsp;&nbsp; **Inputs** - description of the input data.
 
 * ✔️ &nbsp;&nbsp; **Project structure** - brief guide to main files and folders.
 
@@ -2680,7 +2680,7 @@ Relevant guidelines:
 
 * ✔️ &nbsp;&nbsp; **Citation** - instructions for citing the project/repository.
 
-* ✔️ &nbsp;&nbsp; **Licence** - state the license used and point to the [LICENSE file](../sharing/licence.qmd).
+* ✔️ &nbsp;&nbsp; **Licence** - state the license used and point to the `LICENSE` file.
 
 * ✔️ &nbsp;&nbsp; **Funding and affiliations** - relevant sources of funding, support and affiliation.
 
