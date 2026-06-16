@@ -2786,6 +2786,63 @@ Relevant guidelines:
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
+## Code review
+
+Check reproducibility and improve code quality.
+
+::: {.fragment}
+
+Recommend doing regularly during development - if possible!
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code review
+
+Review pull requests:
+
+![](images/pull_request_reviewer.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code review
+
+Review pull requests:
+
+![](images/gitflow.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code review
+
+Use GitHub issues.
+
+![](images/issues.png)
+
+Cool things: (1) issue templates, (2) checklists, (3) sub-issues, (4) GitHub projects.
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code review
+
+If you don't have anyone internal who can review your code, there are other options...
+
+* Generative AI tools
+* Online communities
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Licensing
 
 ::: {.pale-gold}
@@ -2800,7 +2857,178 @@ Relevant guidelines:
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
+## Licensing
+
+A license is a text file that explains how other people are allowed to use your work.
+
+Example - MIT license:
+
+```{.txt}
+MIT License
+
+Copyright (c) [year] [fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Licensing
+
+<br>
+
+::: {style="text-align:center;"}
+
+**No licence = no-one has permission to use your work**
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Licensing
+
+:::: {.columns}
+
+::: {.column}
+
+::: {style="font-size: 70%"}
+
+For code:
+
+<https://choosealicense.com/>
+
+:::
+
+[![](images/choosealicence.png)](https://choosealicense.com/)
+
+:::
+
+::: {.column}
+
+::: {style="font-size: 70%"}
+
+For text:
+
+<https://creativecommons.org/chooser/>
+
+:::
+
+[![](images/creativecommons.png)](https://creativecommons.org/chooser/)
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Citation
+
+::: {.incremental .show-first}
+
+* Protect yourself and collaborators.
+* Encourage others to cite you.
+* Ensure accurate citation.
+* Provide contact information.
+* Recognise contributors.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Citation: `CITATION.cff`
+
+<https://citation-file-format.github.io/cffinit/>
+
+![](images/cffinit.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Citation: `CITATION.cff`
+
+```{.txt}
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: "DES RAP Book: Reproducible Discrete-Event Simulation in Python and R"
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Amy
+    family-names: Heather
+    email: a.heather2@exeter.ac.uk
+    affiliation: University of Exeter Medical School
+    orcid: 'https://orcid.org/0000-0002-6596-3479'
+  - given-names: Tom
+    family-names: Monks
+    email: t.m.w.monks@exeter.ac.uk
+    affiliation: University of Exeter Medical School
+    orcid: http://orcid.org/0000-0003-2631-4481
+  - given-names: Nav
+    family-names: Mustafee
+    email: n.mustafee@exeter.ac.uk
+    affiliation: University of Exeter Business School
+    orcid: https://orcid.org/0000-0002-2204-8924
+  - given-names: Alison
+    family-names: Harper
+    email: a.l.harper@exeter.ac.uk
+    affiliation: University of Exeter Business School
+    orcid: https://orcid.org/0000-0001-5274-5037
+  - given-names: Fatemeh
+    family-names: Alidoost
+    affiliation: University of Exeter Business School
+    orcid: https://orcid.org/0009-0000-0252-560X
+  - given-names: Rob
+    family-names: Challen
+    affiliation: School of Engineering, Mathematics and Technology, University of Bristol
+    orcid: https://orcid.org/0000-0002-5504-7768
+  - given-names: Tom
+    family-names: Slater
+    affiliation: Department of Mathematics and Statistics, University of Exeter
+    orcid: https://orcid.org/0009-0007-0838-7499
+repository-code: 'https://github.com/pythonhealthdatascience/des_rap_book'
+abstract: >-
+  Step-by-step guide for building Python and R simulation
+  models as part of a reproducible analytical pipeline
+  (RAP).
+keywords:
+  - reproducible
+  - python
+  - r
+  - simpy
+  - simmer
+  - rap
+license: MIT
+version: '0.5.0'
+date-released: '2026-02-20'
+```
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2821,6 +3049,92 @@ Relevant guidelines:
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
+## Changelog
+
+`CHANGELOG.md` (or `NEWS.md` for R packages) records changes to a project over time.
+
+::: {.fragment}
+
+Various conventions - e.g., [Keep a Changelog](https://keepachangelog.com/en/1.1.0/):
+
+* `Added` for new features.
+* `Changed` for changes in existing functionality.
+* `Removed` for now removed features.
+* `Fixed` for any bug fixes.
+* `Deprecated` for soon-to-be-removed features.
+* `Security` in case of vulnerabilities.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Changelog
+
+```{.txt}
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Dates formatted as YYYY-MM-DD as per [ISO standard](https://www.iso.org/iso-8601-date-and-time-format.html).
+
+## v0.2.0 - 2025-10-01
+
+This release adds basic discrete event simulation capability, improves documentation, and corrects a key input parameter.
+
+### Added
+
+* Basic simulation that generates arrivals.
+
+### Changed
+
+* Improved the README for clarity and guidance.
+
+### Fixed
+
+* Fixed a bug where the default value for `service_rate` was incorrectly set to 0.5 instead of 1.0, which caused unrealistic queue times in the single-server example.
+
+## v0.1.0 - 2025-09-23
+
+First release of the repository, providing a minimal project structure with initial documentation.
+
+### Added
+
+* Initial repository structure: includes README, license, environment files.
+* Project structured as a package.
+* Basic simulation script with just parameter inputs.
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Changelog: GitHub releases
+
+![](images/create_release.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Changelog: GitHub releases
+
+![](images/release.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Changelog: GitHub releases
+
+![](images/changes_since_release.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 ## Sharing and archiving
 
 ::: {.pale-gold}
@@ -2835,8 +3149,93 @@ Relevant guidelines:
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
+## Sharing and archiving
+
+**Reporting guidelines:** for documenting model.
+
+![](images/reporting_guidelines.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Sharing and archiving
+
+**Sharing guidelines:** for code, data and materials.
+
+![](images/sharing_guidelines.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Sharing and archiving
+
+**Archives** provide long-term storage guarantees and create a DOI for your code.
+
+Examples:
+
+* [Zenodo](https://zenodo.org/)
+* [Figshare](https://figshare.com/)
+* [OSF](https://osf.io/)
+* [CoMSES Net](https://www.comses.net/)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Sharing and archiving
+
+**Archives** provide long-term storage guarantees and create a DOI for your code.
+
+Examples:
+
+* [Zenodo](https://zenodo.org/) - triggered by GitHub release:
+
+![](images/book_zenodo_releases.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
 # Conclusion
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
+
+## Acknowledgements
+
+::: {style="font-size: 60%"}
+
+The DES RAP Book was written by Amy Heather and reviewed by Nav Mustafee, Alison Harper, Tom Monks, Fatemeh Alidoost, Rob Challen and Tom Slater.
+
+![](images/stars_banner.png){fig-align="center"}
+
+STARS is supported by the Medical Research Council [grant number MR/Z503915/1] from 1st May 2024 to 31st October 2026.
+
+This work was also supported by the National Institute for Health and Care Research (NIHR) under the NIHR Applied Research Collaboration South West Peninsula (Grant Reference Number NIHR200167). The views expressed are those of the author(s) and not necessarily those of the NIHR or the Department of Health and Social Care.
+
+:::
+
+::: {style="text-align:center;"}
+
+![](images/exeter_logo.png){width="18%"}
+![](images/mrc_logo.png){width="18%"}
+![](images/arc_logo.png){width="25%"}
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+##
+
+![](images/footsteps.png){fig-align="center"}
+
+Check out:
+
+<https://pythonhealthdatascience.github.io/des_rap_book/>
+
+<https://doi.org/10.3310/nihropenres.14296.1>
