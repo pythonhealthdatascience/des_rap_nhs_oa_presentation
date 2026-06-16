@@ -1,0 +1,26 @@
+.pale-gold {
+  background-color: #f3e6c4;
+  color: #3b2c18;
+  border: 1px solid #d4b06a;
+  border-radius: 8px;
+  padding: 0.7em 1em 0.5em 1em;
+  margin: 1.5em 0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(120, 90, 20, 0.18);
+  font-size: 0.7em;
+}
+
+.desc {
+  font-size: 0.7em;
+  color: #666;
+}
+
+
+.faded {
+  color: #b8b8b881;
+}
+
+.faded .desc,
+.faded code {
+  color: #b8b8b836;
+}

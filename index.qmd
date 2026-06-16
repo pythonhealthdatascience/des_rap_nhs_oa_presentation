@@ -3,9 +3,11 @@ title: Building a Reproducible Analytical Pipeline (RAP) for Simulation with Pyt
 author: Amy Heather
 format:
   revealjs:
-    footer: "DES RAP Book: <https://pythonhealthdatascience.github.io/des_rap_book/>"
+    footer: "DES RAP Book: <https://pythonhealthdatascience.github.io/des_rap_book/><br>Publication: <https://doi.org/10.3310/nihropenres.14296.1>"
     include-in-header:
       - text: <script src="javascript/incremental-show-first.js"></script>
+    css:
+      - css/styles.css
 title-slide-attributes:
   data-visibility: hidden
 ---
@@ -312,6 +314,20 @@ produces different results.
 
 ## Version control
 
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* NHS Levels of RAP (🥉): Code is version controlled.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Version control
+
 **Version control** allows you to track files over time: what changes, when, and by whom.
 
 * Roll back if a change breaks the model.
@@ -346,6 +362,21 @@ Most popular: **GitHub**
 
 * Book walks through how to do this - create a repository, make commits, work in branches, and set up organisations.
 * It's best to use GitHub from the start of a project if possible, rather than halfway through.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Environments
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations: List dependencies and versions.
+* NHS Levels of RAP (🥈): Repository includes dependency information.
 
 :::
 
@@ -677,6 +708,21 @@ alternative for recreation - by default, renv::sync(), using lock, but can run i
 
 ## Structuring as a package
 
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* NHS Levels of RAP (🥈): Code is well-organised following standard directory format.
+* NHS Levels of RAP (🥇): Code is fully packaged.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Structuring as a package
+
 **Package:** Structured collection of code, data and docs.
 
 Easy to distribute, install and reuse across projects.
@@ -812,6 +858,21 @@ Complexity. Beginners, setting up, lots to learn. For quick, exploratory analyse
 :::
 
 ::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code organisation
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations: Minimise code duplication.
+* NHS Levels of RAP (🥈): Reusable functions and/or classes are used where appropriate.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1050,6 +1111,20 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 
 ## Parameters
 
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations: Avoid hard-coded parameters.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameters
+
 **What not to do:** hardcoding parameters into model code.
 
 :::: {.columns}
@@ -1169,14 +1244,10 @@ model <- function() {
 
 ## Parameters
 
-::: {.fragment}
-
 **Recommendation:**
 
 1. Group parameters into a dedicated object.
 2. Pass this object explicitly to your model.
-
-:::
 
 ::: {.fragment}
 
@@ -1190,6 +1261,8 @@ model <- function() {
 
 Either within script or from a file.
 
+Wide range of possibilities. Some examples...
+
 :::
 
 <!----------------------------------------------------------------------------
@@ -1197,3 +1270,753 @@ Either within script or from a file.
 ----------------------------------------------------------------------------->
 
 ## Parameters
+
+Python class example:
+
+::: {style="font-size: 0.8em;"}
+
+```{.python}
+class Parameters:
+    """
+    Parameter class.
+    """
+    def __init__(
+        self, interarrival_time=5, consultation_time=20, transfer_prob=0.3
+    ):
+        """
+        Initialise Parameters instance.
+
+        Parameters
+        ----------
+        interarrival_time : float
+            Time between arrivals (minutes).
+        consultation_time : float
+            Length of consultation (minutes).
+        transfer_prob : float
+            Transfer probability (0-1).
+        """
+        self.interarrival_time = interarrival_time
+        self.consultation_time = consultation_time
+        self.transfer_prob = transfer_prob
+```
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameters
+
+Python JSON example:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+::: {style="font-size: 0.6em;"}
+
+```{.json}
+{
+   "simulation_parameters": {
+      "adult_interarrival": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 5.0
+         }
+      },
+      "adult_consultation": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 20.0
+         }
+      },
+      "adult_transfer": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 0.3
+         }
+      },
+      "child_interarrival": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 7.0
+         }
+      },
+      "child_consultation": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 15.0
+         }
+      },
+      "child_transfer": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 0.2
+         }
+      },
+      "elderly_interarrival": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 10.0
+         }
+      },
+      "elderly_consultation": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 30.0
+         }
+      },
+      "elderly_transfer": {
+         "class_name": "Exponential",
+         "params": {
+            "mean": 0.5
+         }
+      }
+   }
+}
+```
+
+:::
+
+:::
+
+::: {.column width="60%"}
+
+::: {style="font-size: 0.7em;"}
+
+```{.python}
+class CreateParameters:
+    """
+    Store simulation parameters, combining those loaded from a JSON file with
+    values defined in the class.
+    """
+    def __init__(self, json_file, number_of_runs=10):
+        """
+        Parameters
+        ----------
+        json_file : str
+            Path to JSON file containing simulation parameters.
+        number_of_runs : int, optional
+            Number of simulation runs (default is 10).
+        """
+        # Import parameters from JSON file
+        with open(json_file, "r", encoding="utf-8") as f:
+            json_content = json.load(f)
+        params = json_content["simulation_parameters"]
+
+        # Assign file-based parameters as attributes
+        for key, value in params.items():
+            setattr(self, key, value)
+
+        # Add class-defined parameters
+        self.number_of_runs = number_of_runs
+
+
+param = CreateParameters(os.path.join(data_path, "example_parameters.json"))
+```
+
+:::
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameter validation
+
+Either separate function or part of class.
+
+* Accidental creation of new parameters
+
+* Validate parameter values
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+# Model building
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Randomness
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations: Control randomness.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Randomness
+
+![](images/prng.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Randomness: Python {auto-animate="true"}
+
+`numpy`
+
+```{.python}
+rng = np.random.default_rng(seed=20)
+rng.exponential(scale=17, size=3)
+```
+
+`sim-tools`
+
+```{.python}
+exp = Exponential(mean=6, random_seed=3)
+samples = exp.sample(size=3)
+```
+
+::: {.fragment}
+
+`sim-tools` can help with problem of shared random number generators.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Randomness: Python {auto-animate="true"}
+
+`sim-tools` can help with problem of shared random number generators.
+
+![](images/shared_generators.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Randomness: R
+
+`stats`
+
+```{.r}
+library(stats)
+
+set.seed(3L)
+rexp(n = 3L, rate = 1L / 6L)
+```
+
+`simEd` (slower)
+
+```{.r}
+library(simEd)
+
+set.seed(1L)
+arrivals <- vexp(n = 3L, rate = 1L / 3L)
+processing <- vnorm(n = 3L, mean = 10L, sd = 2L)
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Building a DES model
+
+We guide through creating incrementally...
+
+::: {.fragment}
+
+![](images/dag_arrival.png)
+
+:::
+
+::: {.fragment}
+
+![](images/dag_resource.png)
+
+:::
+
+::: {.fragment}
+
+`simpy` (Python) and `simmer` (R)
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Initialisation bias {auto-animate="true"}
+
+![](images/initialisation_bias.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Initialisation bias {auto-animate="true"}
+
+![](images/initialisation_bias.png){fig-align="center"}
+
+Two main strategies:
+
+* Initial conditions: start with some entities/resources.
+* Warm-up period: run model until it reaches a steady state.
+
+::: {.notes}
+
+Initial conditions can be harder as require relevant data for determining appropriate start state.
+
+So in book, we show how to do warm-up period. With SimPy and with simmer - as both require quite different strategies.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Initialisation bias {auto-animate="true"}
+
+Time series inspection approach.
+
+![](images/warm_up.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Initialisation bias {auto-animate="true"}
+
+Time series inspection approach.
+
+![](images/warm_up.png){fig-align="center"}
+
+How?
+
+* Record performance measures at regular intervals.
+* Run multiple replications and long run length.
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Replications
+
+![](images/varying_outputs.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Replications
+
+Confidence interval method - manual or automated.
+
+![](images/conf_int_method.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parallel processing
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations: Optimise model run time.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parallel processing
+
+![](images/parallel.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Performance measures
+
+* Total arrivals
+* Mean wait time
+* Mean time with resource
+* Mean resource utilisation
+* Mean queue length
+* Mean time in system
+* Mean number of patients in system
+* Backlogged patient count
+* Backlogged patient mean wait time
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Logging
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* NHS Levels of RAP (🥈): Logs are automatically recorded by the pipeline to ensure outputs are as expected.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Logging (Python)
+
+`print()` statements.
+
+Logging class created with `logging` and `rich` packages.
+
+Example use:
+
+```{.python}
+# Log consultation start time
+self.logger.log(
+    msg=f"Patient {patient.patient_id} starts consultation.",
+    sim_time=self.env.now
+)
+```
+
+Output to console or save to file.
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Logging (R)
+
+Run `simmer` with `verbose = TRUE`:
+
+![](images/simmer_logs.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Logging (R)
+
+Custom logs using `simmer::log_()`:
+
+![](images/simmer_custom.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Modular model structure
+
+![](images/model_structure_python.png){fig-align="center"}
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Modular model structure
+
+![](images/model_structure_r.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+# Experimentation
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Scenario and sensitivity analysis
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations (⭐): Provide code for all scenarios and sensitivity analyses.
+* STARS Reproducibility Recommendations: Save outputs to a file.
+* STARS Reproducibility Recommendations: Avoid excessive output files.
+* STARS Reproducibility Recommendations: Address large file sizes.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Scenario and sensitivity analysis
+
+<br>
+
+**Scenario analysis:** Set of pre-defined situations plausible and relevant to problem being studied. Purpose is to understand how system operates under different scenarios.
+
+<br>
+
+::: {.fragment}
+
+**Sensitivity analysis:** Assess impact of parameter changes on outcomes. Purpose is to understand how uncertainty in inputs affects the model.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Scenario and sensitivity analysis
+
+Two important things to remember:
+
+**1. Run scenarios programmatically.** For example:
+
+```{.r}
+results <- list()
+# Loop through doctor counts 3-6, running the simulation
+for (i in 3L:6L) {
+  param <- create_params(number_of_doctors = i)
+  result <- runner(param = param)[["run_results"]]
+  # Add scenario information to the results, then save to list
+  result["number_of_doctors"] <- i
+  results[[length(results) + 1L]] <- result
+}
+
+# Combine results into a single dataframe
+scenario_results <- do.call(rbind, results)
+
+# Show as interactive table
+kable(scenario_results) |> scroll_box(height = "400px")
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Scenario and sensitivity analysis
+
+Two important things to remember:
+
+**1. Run scenarios programmatically.**
+
+**2. Share your scenario code.**
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Tables and figures
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations (⭐): Include code to generate the tables, figures, and other reported results.
+* STARS Reproducibility Recommendations: Save outputs to a file.
+
+:::
+
+**Key point: share code!**
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Full run
+
+![](images/rap.png){fig-align="center"}
+
+::: {.pale-gold}
+
+Relevant guidelines:
+
+* STARS Reproducibility Recommendations (⭐): Ensure model parameters are correct.
+* NHS Levels of RAP (🥈): Outputs are produced by code with minimal manual intervention.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Full run {auto-animate="true"}
+
+**main.py/main.R**.
+
+::: {.desc}
+
+Suitable if everything in `.py`/`.R` files (i.e. no `.ipynb`/`.Rmd`). Write a main function that imports all necessary code and runs pipeline.
+
+:::
+
+::: {.fragment}
+
+**Bash**
+
+::: {.desc}
+
+Can run a mixture of file types (e.g., `.py`, `.R`, `.ipynb`, `.Rmd`).
+Write shell script that executes files. May combine with `main.py`/`main.R`.
+
+:::
+
+:::
+
+::: {.fragment}
+
+**Makefile**
+
+::: {.desc}
+
+Track which outputs depend on which inputs, and only re-run steps when the inputs have changed
+
+:::
+
+:::
+
+::: {.fragment}
+
+**Snakemake**
+
+::: {.desc}
+
+Tool that builds on Makefile, supporting very complex pipelines and lots of tools and languages.
+
+:::
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Full run {auto-animate="true"}
+
+:::: {.faded}
+
+**main.py/main.R**.
+
+::: {.desc}
+
+Suitable if everything in `.py`/`.R` files (i.e. no `.ipynb`/`.Rmd`). Write a main function that imports all necessary code and runs pipeline.
+
+:::
+
+::::
+
+**Bash**
+
+::: {.desc}
+
+Can run a mixture of file types (e.g., `.py`, `.R`, `.ipynb`, `.Rmd`).
+Write shell script that executes files. May combine with `main.py`/`main.R`.
+
+:::
+
+:::: {.faded}
+
+**Makefile**
+
+::: {.desc}
+
+Track which outputs depend on which inputs, and only re-run steps when the inputs have changed
+
+:::
+
+::::
+
+:::: {.faded}
+
+**Snakemake**
+
+::: {.desc}
+
+Tool that builds on Makefile, supporting very complex pipelines and lots of tools and languages.
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Full run
+
+```{.bash}
+#!/bin/bash
+
+# Ensure the script exits on error
+set -e
+
+# Find and render all .Rmd files in the specified directory
+for file in "rmarkdown"/*.Rmd; do
+    echo "Rendering: $file"
+    Rscript -e "rmarkdown::render('$file')"
+done
+
+echo "Rendering complete!"
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Full run
+
+```{.bash}
+#!/usr/bin/env bash
+
+# Get the conda environment's jupyter path
+CONDA_JUPYTER=$(dirname "$(which python)")/jupyter
+
+run_notebook() {
+    local nb="$1"
+    echo "🏃 Running notebook: $nb"
+    if "${CONDA_JUPYTER}" nbconvert --to notebook --inplace --execute \
+        --ClearMetadataPreprocessor.enabled=True \
+        --ClearMetadataPreprocessor.clear_notebook_metadata=True \
+        "$nb"
+    then
+        echo "✅ Successfully processed: $nb"
+    else
+        echo "❌ Error processing: $nb"
+    fi
+    echo "-------------------------"
+}
+
+if [[ -n "$1" ]]; then
+    run_notebook "$1"
+else
+    for nb in notebooks/*.ipynb; do
+        run_notebook "$nb"
+    done
+fi
+```
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+# Verification and validation
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+# Verification and validation
+
+**Verification:** The process of checking that the simulation model correctly implements the intended conceptual model.
+
+It involves checking that the model’s logic, structure and parameters are implemented as planned and free from coding errors.
