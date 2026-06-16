@@ -6,7 +6,23 @@ format:
     footer: "DES RAP Book: <https://pythonhealthdatascience.github.io/des_rap_book/>"
     include-in-header:
       - text: <script src="javascript/incremental-show-first.js"></script>
+title-slide-attributes:
+  data-visibility: hidden
 ---
+
+::: {style="text-align:center;"}
+
+## Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R
+
+Amy Heather
+
+NHS-OA Webinar 18th June 2026
+
+![](images/exeter_logo.png){width="18%"}
+![](images/mrc_logo.png){width="18%"}
+![](images/arc_logo.png){width="25%"}
+
+:::
 
 ## Reproducibility {auto-animate=true}
 
@@ -283,6 +299,12 @@ produces different results.
 * Python and R
 
 :::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+# Setup
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -790,3 +812,388 @@ Complexity. Beginners, setting up, lots to learn. For quick, exploratory analyse
 :::
 
 ::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code organisation
+
+![](images/code_structure.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code organisation: functions
+
+:::: {.columns}
+
+::: {.column}
+
+Python:
+
+::: {style="font-size: 0.7em;"}
+
+```{.python}
+def estimate_wait_time(queue_length, avg_service_time):
+    """
+    Estimate the total wait time in a queue.
+
+    Parameters
+    ----------
+    queue_length : int
+        Number of people currently ahead in the queue.
+    avg_service_time : float
+        Average service time per person.
+
+    Returns
+    -------
+    float
+        Estimated total wait time.
+    """
+    return queue_length * avg_service_time
+
+
+# There are 4 patients ahead, average service time is 15 minutes
+print(estimate_wait_time(queue_length=4, avg_service_time=15))
+```
+
+:::
+
+:::
+
+::: {.column}
+
+R:
+
+::: {style="font-size: 0.7em;"}
+
+```{.r}
+#' Estimate the total wait time in a queue.
+#'
+#' @param queue_length Numeric. Number of people currently ahead in the queue.
+#' @param avg_service_time Numeric. Average service time per person.
+#'
+#' @return Estimated total wait time.
+#' @export
+
+estimate_wait_time <- function(queue_length, avg_service_time) {
+  queue_length * avg_service_time
+}
+
+# There are 4 patients ahead
+# Average service time is 15 minutes
+print(
+  estimate_wait_time(
+    queue_length = 4L, avg_service_time = 15L
+  )
+)
+```
+
+:::
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Code organisation: classes (Python)
+
+::: {style="font-size: 0.7em;"}
+
+```{.python}
+class Patient:
+    """
+    Represents a patient in a healthcare system queue.
+
+    Attributes
+    ----------
+    patient_id : int
+        Unique identifier for the patient.
+    arrival_time : float
+        Recorded arrival time for the patient.
+    status : str
+        Current status of the patient.
+    """
+    def __init__(self, patient_id, arrival_time):
+        """
+        Initialise a new Patient instance.
+
+        Parameters
+        ----------
+        patient_id : int
+            Unique identifier for the patient.
+        arrival_time : float
+            Recorded arrival time for the patient.
+        """
+        self.patient_id = patient_id
+        self.arrival_time = arrival_time
+        self.status = "waiting"
+
+    def admit(self):
+        """
+        Mark the patient as admitted.
+        """
+        self.status = "admitted"
+
+    def discharge(self):
+        """
+        Mark the patient as discharged.
+        """
+        self.status = "discharged"
+
+
+alice = Patient(patient_id=1, arrival_time=3)
+print(alice.status)
+```
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+# Model inputs
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Input modelling {auto-animate=true}
+
+Sample from distributions in DES. To choose:
+
+::: {.incremental}
+
+1. Identify candidate distributions.
+2. Fit distributions to your data and compare goodness-of-fit.
+
+:::
+
+::: {.fragment}
+
+Recommend: `distfit` (Python) and `fitdistrplus` (R)
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Input modelling {auto-animate=true}
+
+Recommend: `distfit` (Python) and `fitdistrplus` (R)
+
+:::: {.columns}
+
+::: {.column}
+
+![](images/distfit.png)
+
+:::
+
+::: {.column}
+
+![](images/fitdistrplus.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Input modelling {auto-animate=true}
+
+Recommend: `distfit` (Python) and `fitdistrplus` (R)
+
+:::: {.columns}
+
+::: {.column}
+
+![](images/distfit_plots.png)
+
+:::
+
+::: {.column}
+
+![](images/fitdistrplus_plots.png)
+
+:::
+
+::::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Input data management
+
+![](images/input_data.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Input data management
+
+![](images/input_data_rap.png)
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameters
+
+**What not to do:** hardcoding parameters into model code.
+
+:::: {.columns}
+
+::: {style="font-size: 0.8em;"}
+
+::: {.column width="47%"}
+
+```{.python}
+def model():
+    # Hardcoded parameter values
+    interarrival_time = 5
+    consultation_time = 20
+    transfer_prob = 0.3
+    # ...rest of the model...
+```
+
+:::
+
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="47%"}
+
+```{.r}
+model <- function() {
+    # Hardcoded parameter values
+    interarrival_time <- 5
+    consultation_time <- 20
+    transfer_prob <- 0.3
+    # ...rest of the model...
+}
+```
+
+:::
+
+:::
+
+::::
+
+::: {.fragment}
+
+* Requires manually changing parameter values in the script.
+* May end up with duplicate scripts.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameters
+
+**A slight improvement:** global parameters.
+
+:::: {.columns}
+
+::: {style="font-size: 0.8em;"}
+
+::: {.column width="47%"}
+
+```{.python}
+# Parameters for base case
+INTERARRIVAL_TIME = 5
+CONSULTATION_TIME = 20
+TRANSFER_PROB = 0.3
+
+def model():
+    # Use the global parameters
+    # ...
+```
+
+:::
+
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="47%"}
+
+```{.r}
+# Parameters for base case
+interarrival_time <- 5
+consultation_time <- 20
+transfer_prob <- 0.3
+
+model <- function() {
+  # Use the global parameters
+  # ...
+}
+```
+
+:::
+
+:::
+
+::::
+
+::: {.fragment}
+
+* ✅ No longer hard coded.
+* ✅ Centralised.
+
+:::
+
+::: {.fragment}
+
+* ❌ Still inflexible.
+* ❌ Not scalabale.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameters
+
+::: {.fragment}
+
+**Recommendation:**
+
+1. Group parameters into a dedicated object.
+2. Pass this object explicitly to your model.
+
+:::
+
+::: {.fragment}
+
+* ✅ Clear parameter sets.
+* ✅ No global variables.
+* ✅ Fewer inputs.
+
+:::
+
+::: {.fragment}
+
+Either within script or from a file.
+
+:::
+
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+
+## Parameters
