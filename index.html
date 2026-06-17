@@ -209,11 +209,35 @@ Amy Heather
 </div>
 
 </section>
-<section id="building-a-reproducible-analytical-pipeline-rap-for-simulation-with-python-and-r" class="slide level2" style="text-align:center;">
-<h2>Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<div style="text-align:center;">
+<h2>
+Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R
+</h2>
 <p>Amy Heather</p>
+<div style="font-size: 60%">
+<p>Postdoctoral Research Associate at the University of Exeter</p>
 <p>NHS-OA Webinar 18th June 2026</p>
+</div>
 <p><img data-src="images/exeter_logo.png" style="width:18.0%"> <img data-src="images/mrc_logo.png" style="width:18.0%"> <img data-src="images/arc_logo.png" style="width:25.0%"></p>
+</div>
+<aside class="notes">
+<p>Introduce myself.</p>
+<p>Project STARS: “Sharing Tools and Artefacts for Reproducible and Reusable Simulations in healthcare.”</p>
+<p>Developed resources on building reproducible discrete event healthcare simulation models in Python and R.</p>
+<p>Talk: Walk through a full RAP built around DES models in Python and R - focused on simulation, but principles and concepts broadly applicable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="reproducibility" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Reproducibility</h2>
@@ -222,10 +246,23 @@ Amy Heather
 <p>Reproducibility is the ability to regenerate results (e.g.&nbsp;tables, figures) using the provided code and data.</p>
 </div></div>
 
+<img data-src="images/reproducibility.png" class="r-stretch"><aside class="notes">
+<p>Define reproducibility.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/reproducibility.png" class="r-stretch"></section>
+</section>
 <section id="reproducibility-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Reproducibility</h2>
 <div class="columns">
@@ -248,6 +285,27 @@ Amy Heather
 </ul>
 </div>
 </div></div>
+<aside class="notes">
+<p>Easier to revisit and reuse own code (e.g., updating outputs, doing new analysis).</p>
+<hr>
+<p>Aiming for reproducibility encourages you to structure code clearly and document your workflow thoroughly.</p>
+<hr>
+<p>Troubleshooting non-reproducible code in future can be time-consuming or even impossible when required information is lost.</p>
+<hr>
+<p>If work is reproducible, it builds trust, as others can independently confirm your results and see that your methods are transparent.</p>
+<hr>
+<p>When others are able to reproduce your work, it confirms that the code runs correctly as intended. This enables confident reuse and adaption for new contexts and projects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -256,26 +314,70 @@ Amy Heather
 <h2>Reproducible Analytical Pipelines</h2>
 <p><strong>RAP</strong>: Systematic approach. Every step (end-to-end) is transparent, automated and repeatable.</p>
 
+<img data-src="images/rap.png" class="r-stretch"><aside class="notes">
+<p>A RAP is a systematic approach to data analysis and modelling in which every step of the process (end-to-end) is transparent, automated, and repeatable</p>
+<p>There should be no (or minimal) manual intervention required to generate the results.</p>
+<p>Beyond automation, RAPs also will embed software engineering best practices including version control, testing, code review, packaging and documentation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/rap.png" class="r-stretch"></section>
+</section>
 <section id="discrete-event-simulation-des" class="slide level2">
 <h2>Discrete-event simulation (DES)</h2>
 <p>DES model a system as a sequence of events. For example, patients arriving, waiting, receiving treatment, and leaving.</p>
 
+<img data-src="videos/vidigi_des.gif" class="r-stretch"><aside class="notes">
+<p>In this work, we’ve focused on discrete-event simulation models, or DES.</p>
+<p>DES are commonly used to model healthcare systems.</p>
+<p>In these models, time progresses only when specific events happen - e.g., a patient arrives, waits for a resource (e.g., doctor), receives treatment, then leaves.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="videos/vidigi_des.gif" class="r-stretch"></section>
+</section>
 <section id="discrete-event-simulation-des-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Discrete-event simulation (DES)</h2>
 <p>DES incorporate uncertainty - instead of e.g., fixed frequency of arrivals, sample from statistical distribution.</p>
 
+<img data-src="images/samples.png" class="r-stretch"><aside class="notes">
+<p>Real systems have uncertainty - patients don’t arrive at exactly the same time, and service durations vary from person to person.</p>
+<p>To capture this, instead of having a fixed time between patients or fixed service length, DES models sample from statistical distributions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/samples.png" class="r-stretch"></section>
+</section>
 <section id="discrete-event-simulation-des-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Discrete-event simulation (DES)</h2>
 <p>DES incorporate uncertainty - instead of e.g., fixed frequency of arrivals, sample from statistical distribution.</p>
@@ -289,6 +391,19 @@ Amy Heather
 </div><div class="column">
 <p><img data-src="images/varying_outputs.png"></p>
 </div></div>
+<aside class="notes">
+<p>This means each run of the simulation will produce slightly different results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -297,6 +412,20 @@ Amy Heather
 <h2>How to construct DES as RAP?</h2>
 <p><strong>Resource 1: NHS Levels of RAP</strong></p>
 <p><a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/"><img data-src="images/levels_of_rap.png"></a></p>
+<aside class="notes">
+<p>We used two frameworks to guide us in producing reproducible DES as part of a RAP.</p>
+<p>First: the NHS Levels of RAP. Published by RAP Community of Practice. There are three tiers…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -317,6 +446,26 @@ Amy Heather
 <li>Code is published in the open and linked to &amp; from accompanying publication (if relevant).</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Baseline has things like:</p>
+<ul>
+<li>Using an open source language</li>
+<li>Version control</li>
+<li>README</li>
+<li>Peer review</li>
+<li>Open code</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -343,6 +492,30 @@ Amy Heather
 <li>Data is handled and output in a Tidy data format.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Silver adds things like:</p>
+<ul>
+<li>Running without intervention</li>
+<li>Good documentation</li>
+<li>Well-organised</li>
+<li>Modular code</li>
+<li>Following coding standards</li>
+<li>Writing tests</li>
+<li>Including dependency info</li>
+<li>Saving logs</li>
+<li>Tidy data</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -361,6 +534,25 @@ Amy Heather
 <li>Changes to the RAP are clearly signposted. E.g. a changelog in the package, releases etc. (See gov.uk info on Semantic Versioning).</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Gold tier adds:</p>
+<ul>
+<li>Packaging code</li>
+<li>Using CI/CD like via GitHub actions</li>
+<li>Scheduled runs</li>
+<li>Changelog</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -369,6 +561,19 @@ Amy Heather
 <h2>How to construct DES as RAP?</h2>
 <p><strong>Resource 2: STARS DES reproducibility recommendations</strong></p>
 <p><a href="https://doi.org/10.1080/17477778.2025.2552177"><img data-src="images/jos_reproducibility_paper.png"></a></p>
+<aside class="notes">
+<p>The second framework used to guide us came from some work we did, published here in the Journal of Simulation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -377,21 +582,19 @@ Amy Heather
 <h2>How to construct DES as RAP?</h2>
 <p><strong>Resource 2: DES reproducibility recommendations</strong></p>
 
-<!----------------------------------------------------------------------------
-------------------------------- Next slide -----------------------------------
------------------------------------------------------------------------------>
-<img data-src="images/reproduced_studies.png" class="r-stretch"></section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column" style="width:35%;">
-<h2 style="display: inline" data-id="my-heading">
-How to construct DES as RAP?
-</h2>
-<p><strong>Resource 2: STARS DES reproducibility recommendations</strong></p>
-</div><div class="column" style="width:65%;">
-<p><img data-src="images/stars_rec_reproducibility.png"></p>
-</div></div>
+<img data-src="images/reproduced_studies.png" class="r-stretch"><aside class="notes">
+<p>It involved trying to reproduce eight published Python and R healthcare DES models - with varying success - and recording the facilitators and barriers to reproduction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -405,8 +608,78 @@ How to construct DES as RAP?
 </h2>
 <p><strong>Resource 2: STARS DES reproducibility recommendations</strong></p>
 </div><div class="column" style="width:65%;">
-<p><img data-src="images/stars_rec_troubleshoot.png"></p>
+<div style="font-size: 70%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/stars_rec_reproducibility.png"></p>
+<figcaption>Below each recommendation, a count of studies that fully met it is provided. The total may fall below eight if the criteria were not applicable to a given study.</figcaption>
+</figure>
+</div>
+</div>
 </div></div>
+<aside class="notes">
+<p>From this we drew up a set of recommendations, specifically targeted to healthcare DES models, and how to make sure they are reproducible. This first circle are those that facilitated reproduction - things like:</p>
+<ul>
+<li>Including a licence</li>
+<li>Dependencies</li>
+<li>Using random seeds</li>
+<li>Ensuring model parameters are correct</li>
+<li>Crucially, sharing all relevant code - for all model outputs, for the scenario analysis, sensitivity analysis, tables, and figures.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:35%;">
+<h2 style="display: inline" data-id="my-heading">
+How to construct DES as RAP?
+</h2>
+<p><strong>Resource 2: STARS DES reproducibility recommendations</strong></p>
+</div><div class="column" style="width:65%;">
+<div style="font-size: 70%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/stars_rec_troubleshoot.png"></p>
+<figcaption>Below each recommendation, a count of studies that fully met it is provided. The total may fall below eight if the criteria were not applicable to a given study.</figcaption>
+</figure>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Next, were things that were really helpful when trying to troubleshoot non-reproducible code - things like:</p>
+<ul>
+<li>Avoiding hard-coded parameters</li>
+<li>Minimising code duplication</li>
+<li>Including run instructions</li>
+<li>Ensuring output results tables were clear and easy to understand</li>
+<li>Separating model code from any web applications.</li>
+</ul>
+<p>And so on</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -416,10 +689,54 @@ How to construct DES as RAP?
 <iframe width="100%" height="500" src="https://pythonhealthdatascience.github.io/des_rap_book/" title="DES RAP Book">
 </iframe>
 <aside class="notes">
+<p>The resource we developed we refer to here as the DES RAP Book. It is a website, openly and freely available online, with the URL at the bottom of this slide.</p>
+<p>In it, we provide comprehensive detailed guide which you can follow to gradually build up a working model in Python or in R (show can choose between them).</p>
+<p>(Scroll sidebar to see pages).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+</section>
+<section id="example-models" class="slide level2">
+<h2>Example models</h2>
 <ul>
-<li>Python and R</li>
-<li>Mention the 4 example models</li>
+<li>Python M/M/s model - <a href="https://github.com/pythonhealthdatascience/pydesrap_mms" class="uri">https://github.com/pythonhealthdatascience/pydesrap_mms</a></li>
+<li>R M/M/s model - <a href="https://github.com/pythonhealthdatascience/rdesrap_mms" class="uri">https://github.com/pythonhealthdatascience/rdesrap_mms</a></li>
+<li>Python stroke model - <a href="https://github.com/pythonhealthdatascience/pydesrap_stroke" class="uri">https://github.com/pythonhealthdatascience/pydesrap_stroke</a></li>
+<li>R stroke model - <a href="https://github.com/pythonhealthdatascience/rdesrap_stroke" class="uri">https://github.com/pythonhealthdatascience/rdesrap_stroke</a></li>
 </ul>
+<aside class="notes">
+<p>Alongside this resource are four complete example repositories - two Python, and two R - which serve as illustrative examples following the covered concepts in the book.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+</section>
+<section id="focus-of-this-webinar" class="slide level2">
+<h2>Focus of this webinar</h2>
+<p><img data-src="images/desrapbook1.png" style="width:30.0%"> <img data-src="images/desrapbook2.png" style="width:30.0%"> <img data-src="images/desrapbook3.png" style="width:30.0%"></p>
+<aside class="notes">
+<p>In this webinar, I’m going to walk through the topics covered in the book. Though I’ll only touch on each briefly, you can go to the book to get a full deep dive and detailed information on each, with code and more explanations.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -438,6 +755,19 @@ How to construct DES as RAP?
 <section>
 <section id="setup" class="title-slide slide level1 center">
 <h1>Setup</h1>
+<aside class="notes">
+<p>Start with project setup.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -450,6 +780,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥉): Code is version controlled.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>First is version control, which is a requirement from the baseline tier of the NHS Levels of RAP.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -476,10 +819,8 @@ How to construct DES as RAP?
 <p><img data-src="images/github_branch.png"></p>
 </div></div>
 <aside class="notes">
-<ul>
-<li>Book walks through how to do this - create a repository, make commits, work in branches, and set up organisations.</li>
-<li>It’s best to use GitHub from the start of a project if possible, rather than halfway through.</li>
-</ul>
+<p>In the book, we walk through how to create a repository, make commits, work in branches, and set up organisations.</p>
+<p>One thing to mention here, is that it’s best to use GitHub from the start of a project if possible, rather than halfway through.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -504,6 +845,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Repository includes dependency information.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Environments - requirements of both of the guidelines we followed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -522,8 +876,11 @@ How to construct DES as RAP?
 <p><img data-src="images/env_isolate.png" style="width:70.0%"></p>
 </div>
 <aside class="notes">
+<p>Why?</p>
 <p>Acts like a time capsule, return to project later and run with same packages and version.</p>
+<hr>
 <p>Isolate environments for different projects, so each can own set of packages and version of python or R.</p>
+<hr>
 <p>Dependency management also important for collaboration, so everyone on team uses same set-up.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -589,9 +946,10 @@ How to construct DES as RAP?
 <p><strong>Key question:</strong> Does the tool manage the <strong>Python version</strong>?</p>
 </div>
 <aside class="notes">
-<p>Recommendation? Ideally, managing Python version. So not venv. And ideally conda/mamba/uv. Although poetry good too - it can select among installed versions of Python, but cannot install new Python version itself.</p>
-<p>Although disclaimer, NHS audience, know its not always a choice can make, may have own rationale for what choose etc.</p>
-<p>In book, we provide instructions on all, but mainly focus on conda/mamba.</p>
+<p>In Python, there are lots of options, including <code>venv</code>, <code>conda</code>, <code>mamba</code>, <code>poetry</code>, <code>uv</code>, and more.</p>
+<p>I know in the NHS there may not be alot of flexibility for what tool you can use.</p>
+<p>Our general recommendation if you do get a choice is to use something that will manage Python versions - something like <code>conda</code>, <code>mamba</code>, and <code>uv</code>. <code>poetry</code> is also good as it can select among installed versions of Python, though cannot install new versions itself. This is good, as it means you can have different specific versions of Python for different projects.</p>
+<p>On our team, we typically use <code>conda</code>/<code>mamba</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -637,10 +995,11 @@ How to construct DES as RAP?
 <span id="cb2-17"><a href=""></a><span class="va">tzdata</span><span class="op">=</span>=2026.2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <aside class="notes">
-<p>Another thing to consider: main packages v.s., full snapshot</p>
-<p>On left are main packages for a project. When set up.. pip install this, pip install that.</p>
-<p>On right, is full environment. All dependencies of installed packages and so on.</p>
-<p>Reuse/reproduction… broken env… easier with list main… prioritise that… don’t just scrape env save… from start, definied key list… etc</p>
+<p>Another thing to consider is whether you are recording the main packages used or a full snapshot of your environment.</p>
+<p>On the left, are the main packages - when setting up, pip install this, pip install right.</p>
+<p>On right, is the full environment, with all the dependencies of those four packages included. Might get this by running <code>pip freeze</code>.</p>
+<p>We would encourage ensuring there is a list of main packages, as this makes it much easier to recover from problems: if recreating the full environment fails, you can start from a clean environment and reinstall just the main packages, letting the dependency resolver work things out again.</p>
+<p>With <code>conda</code> or <code>mamba</code> you might often just have a file like the left. With <code>poetry</code> and <code>uv</code>, you will often have both.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -687,7 +1046,9 @@ How to construct DES as RAP?
 </table>
 </div>
 <aside class="notes">
-<p>rv in development typically people use renv renv only manages packages to manage version, can use rig.</p>
+<p>In R, there is one main package used for managing installed packages, and that is <code>renv</code>.</p>
+<p>For installing and switching between R versions, we would recommend <code>rig</code>.</p>
+<p>Also to flag, a new package being developed as an alternative to <code>renv</code> called <code>rv</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -833,9 +1194,8 @@ How to construct DES as RAP?
 <span id="cb4-118"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <aside class="notes">
-<p>As mentioned in Python</p>
-<p>By default using renv, you’ll be encourage to take full environment snapshots. renv.lock. that can be really painful to recreate. we encourage DESCRIPTION file list main packages and renv.lock capture all. more info on setting this up in book. but wy?</p>
-<p>clear requirements, summary main packages consistent with package development alternative for recreation - by default, renv::sync(), using lock, but can run into issues, struggling, may need to rebuild from scratch, could go through scripts and looking at imports, better yet, if already provided in a DESCRIPTION file.</p>
+<p>In R, you again want to think about main packages v.s. full snapshot.</p>
+<p>By default using <code>renv</code>, you’ll be encouraged to take full environment snapshots in an <code>renv.lock</code> file. That can be painful to rebuild in future, so in the book, we recommend also keeping a <code>DESCRIPTION</code> file listing the main packages.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -860,6 +1220,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥇): Code is fully packaged.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>When setting up the structure of a repository, it’s worth considering structuring your code as a package, as recommended in the NHS Levels of RAP.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -886,6 +1259,34 @@ How to construct DES as RAP?
 <span id="cb6-5"><a href=""></a>├── man/</span>
 <span id="cb6-6"><a href=""></a>└── NAMESPACE</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
+<aside class="notes">
+<p>It may sound scary, but a package is basically just a standardised, structured collection of code, documentation and data, that is easy to distribute, install and reuse.</p>
+<hr>
+<p>In Python, the key files required for a package are:</p>
+<ul>
+<li>Folder with <code>.py</code> file containing code (known as a module).</li>
+<li>An <code>__init__.py</code> file marking that folder as a package.</li>
+<li>A <code>pyproject.toml</code> containing package information.</li>
+</ul>
+<hr>
+<p>In R, a package has four key components:</p>
+<ul>
+<li>A folder called <code>R/</code> containing one or more <code>.R</code> files with code.</li>
+<li>A <code>DESCRIPTION</code> file containing information about the package.</li>
+<li>A <code>man/</code> folder, which is automatically generated by <code>roxygen2</code> and contains help files based on your package docstrings, which I’ll mention later.</li>
+<li>A <code>NAMESPACE</code> file, automatically generated and contains all the functions and objects made available by your package.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -903,14 +1304,15 @@ How to construct DES as RAP?
 </ul>
 </div>
 <aside class="notes">
-<p>Benefits:</p>
 <p>The model is installed in our environment and can then be easily used anywhere else in our directory (or even from other directories) without needing to specify a system path.</p>
+<hr>
 <p>It encourages us to create a well-organised repository following standardised established package structures.</p>
+<hr>
 <p>It helps keep the model and analysis code separate, improving maintainability, reusability, and reducing the risk of unintended side effects.</p>
+<hr>
 <p>It supports automated testing frameworks which can verify functionality.</p>
-<p>R benefits:</p>
-<p>Tools like devtools::document() and roxygen2 create documentation that can be accessed using ?functionname.</p>
-<p>Workflow helpers like usethis automate setup of licences, READMEs, tests, vignettes, GitHub Actions and more.</p>
+<hr>
+<p>In R, workflow helpers like <code>usethis</code> automate setup of licences, READMEs, tests, vignettes, GitHub Actions and more.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -930,8 +1332,10 @@ How to construct DES as RAP?
 <h2>Structuring as a package: downside</h2>
 <p>😞: More set-up and learning at the start</p>
 <aside class="notes">
-<p>Downside:</p>
-<p>Complexity. Beginners, setting up, lots to learn. For quick, exploratory analyses that won’t be reused or shared, a full package structure may be more effort than necessary. In those cases, a well-organised folder with a few files might be perfectly sufficient. we generally recommend investing the time to adopt a package structure early on - it’s usually easier to start that way, and the benefits tend to outweigh the initial effort.</p>
+<p>Downside: Complexity.</p>
+<p>Particularly for beginners, setting up, there’s a lot to learn.</p>
+<p>For quick, exploratory analyses that won’t be reused or shared, a full package structure may be more effort than necessary. In those cases, a well-organised folder with a few files might be perfectly sufficient.</p>
+<p>For analyses where we might want a package structure, we generally recommend investing the time to adopt a package structure early on - it’s usually easier to start that way, and the benefits tend to outweigh the initial effort.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2922,7 +3326,7 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 
 <img data-src="images/footsteps.png" class="quarto-figure quarto-figure-center r-stretch"><p>Check out:</p>
