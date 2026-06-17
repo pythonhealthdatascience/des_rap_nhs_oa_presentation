@@ -2387,7 +2387,7 @@ How to construct DES as RAP?
 <h2>Replications</h2>
 
 <img data-src="images/varying_outputs.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
-
+<p>We have to run the model multiple times, getting different results each time, and then we find the average of those.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2407,10 +2407,23 @@ How to construct DES as RAP?
 <h2>Replications</h2>
 <p>Confidence interval method - manual or automated.</p>
 
+<img data-src="images/conf_int_method.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>In the book, to choose the length of the warm-up period, we use the confidence interval method, with manual or automated options. It involves running the simulation for an increasing number of times, and finding the point at which the confidence interval of the results is stable and narrow.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/conf_int_method.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="parallel-processing" class="slide level2">
 <h2>Parallel processing</h2>
 <div class="pale-gold">
@@ -2419,6 +2432,19 @@ How to construct DES as RAP?
 <li>STARS Reproducibility Recommendations: Optimise model run time.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Ideally, we want a model to run as fast as it can.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2426,10 +2452,24 @@ How to construct DES as RAP?
 <section id="parallel-processing-1" class="slide level2">
 <h2>Parallel processing</h2>
 
+<img data-src="images/parallel.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Typically, the model will run replications sequentially, one after the other.</p>
+<p>However, when we set up parallel processing, which we use the <code>joblib</code> and <code>future</code> packages to do, they can at the same time on different cores.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/parallel.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="performance-measures" class="slide level2">
 <h2>Performance measures</h2>
 <ul>
@@ -2443,6 +2483,19 @@ How to construct DES as RAP?
 <li>Backlogged patient count</li>
 <li>Backlogged patient mean wait time</li>
 </ul>
+<aside class="notes">
+<p>In the book, we show how to record nine different typical DES performance measures, but you’ll find there are many more things you can output from the model too.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2455,6 +2508,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Logs are automatically recorded by the pipeline to ensure outputs are as expected.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>The NHS Levels of RAP encourages recording logs in your analysis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2470,6 +2536,20 @@ How to construct DES as RAP?
 <span id="cb21-4"><a href=""></a>    sim_time<span class="op">=</span><span class="va">self</span>.env.now</span>
 <span id="cb21-5"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output to console or save to file.</p>
+<aside class="notes">
+<p>In Python, this can be done simply using <code>print</code> statements.</p>
+<p>We also explore how you can get more fancy, and use the <code>logging</code> and <code>rich</code> packages, and save your logs to a file as well.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2478,32 +2558,84 @@ How to construct DES as RAP?
 <h2>Logging (R)</h2>
 <p>Run <code>simmer</code> with <code>verbose = TRUE</code>:</p>
 
+<img data-src="images/simmer_logs.png" class="r-stretch"><aside class="notes">
+<p>In R, <code>simmer</code> will provide <code>logs</code> if you set <code>verbose</code> to <code>TRUE</code>. These are great, if a little hard to read.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/simmer_logs.png" class="r-stretch"></section>
+</section>
 <section id="logging-r-1" class="slide level2">
 <h2>Logging (R)</h2>
 <p>Custom logs using <code>simmer::log_()</code>:</p>
 
+<img data-src="images/simmer_custom.png" class="r-stretch"><aside class="notes">
+<p>It is possible to create custom logs with the <code>log_()</code> function, although we do typically just use the basic ones, but this is a great option to explore too, to produce logs that are easier to read.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/simmer_custom.png" class="r-stretch"></section>
+</section>
 <section id="modular-model-structure" class="slide level2">
 <h2>Modular model structure</h2>
 
+<img data-src="images/model_structure_python.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>As we build the model, we are using a modular structure. This is just a simplified view here, but to show that, in Python, we use different classes that are working together, that contain parameters, patient attributes, the model logic, as well as classes to run the model and log results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/model_structure_python.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="modular-model-structure-1" class="slide level2">
 <h2>Modular model structure</h2>
 
+<img data-src="images/model_structure_r.png" class="r-stretch"><aside class="notes">
+<p>We do the same in the R model but with functions, to return parameters, provide model logic, run the model, filter out warm-up results, and calculate performance measures.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/model_structure_r.png" class="r-stretch"></section></section>
+</section></section>
 <section>
 <section id="experimentation" class="title-slide slide level1 center">
 <h1>Experimentation</h1>
@@ -2522,6 +2654,19 @@ How to construct DES as RAP?
 <li>STARS Reproducibility Recommendations: Address large file sizes.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>In our analyses, we want to think about how we are saving to output files, and sharing code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2534,6 +2679,21 @@ How to construct DES as RAP?
 <div class="fragment">
 <p><strong>Sensitivity analysis:</strong> Assess impact of parameter changes on outcomes. Purpose is to understand how uncertainty in inputs affects the model.</p>
 </div>
+<aside class="notes">
+<p>For DES, we have scenario analysis, which involves running a set of pre-defined situations plausible and relevant to problem being studied. The purpose is to understand how system operates under different scenarios.</p>
+<hr>
+<p>We also run sensitivity analyses, which assess how changes in parameter values impact on outcomes. This aims to understand how uncertainty in inputs affects the model, and how robust it is to uncertainty in inputs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2557,6 +2717,20 @@ How to construct DES as RAP?
 <span id="cb22-13"><a href=""></a></span>
 <span id="cb22-14"><a href=""></a><span class="co"># Show as interactive table</span></span>
 <span id="cb22-15"><a href=""></a><span class="fu">kable</span>(scenario_results) <span class="sc">|&gt;</span> <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"400px"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Two things to remember. One is to run scenarios programmatically.</p>
+<p>For example here, we run through different scenarios of different numbers of doctors in a loop, getting results from each scenario and saving those.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2566,6 +2740,19 @@ How to construct DES as RAP?
 <p>Two important things to remember:</p>
 <p><strong>1. Run scenarios programmatically.</strong></p>
 <p><strong>2. Share your scenario code.</strong></p>
+<aside class="notes">
+<p>And also, to make sure to share that code. As it is very often not shared, at least in models you find published in journals.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2580,6 +2767,19 @@ How to construct DES as RAP?
 </ul>
 </div>
 <p><strong>Key point: share code!</strong></p>
+<aside class="notes">
+<p>Again, for tables and figures, we want to write code that makes those, and make sure to save and share that code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2594,6 +2794,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Outputs are produced by code with minimal manual intervention.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>You’ll recall that a RAP involves running our analysis from end-to-end with minimal intervention. There’s a few different ways to do this…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2622,6 +2835,25 @@ How to construct DES as RAP?
 <p>Tool that builds on Makefile, supporting very complex pipelines and lots of tools and languages.</p>
 </div>
 </div>
+<aside class="notes">
+<p>main…</p>
+<hr>
+<p>bash…</p>
+<hr>
+<p>makefile…</p>
+<hr>
+<p>snakemake…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2650,6 +2882,19 @@ How to construct DES as RAP?
 <p>Tool that builds on Makefile, supporting very complex pipelines and lots of tools and languages.</p>
 </div>
 </div>
+<aside class="notes">
+<p>In the book, we focus on bash, as it can run different file types, so is well suited to our project structure, where we might have analysis in python files, r files, notebooks or rmarkdown files.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2668,6 +2913,20 @@ How to construct DES as RAP?
 <span id="cb23-10"><a href=""></a><span class="cf">done</span></span>
 <span id="cb23-11"><a href=""></a></span>
 <span id="cb23-12"><a href=""></a><span class="bu">echo</span> <span class="st">"Rendering complete!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>This is an example of bash script, which we would run from the terminal or from Git Bash on windows.</p>
+<p>Here, it is running all the R markdown files in a directory.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2701,6 +2960,19 @@ How to construct DES as RAP?
 <span id="cb24-25"><a href=""></a>        <span class="ex">run_notebook</span> <span class="st">"</span><span class="va">$nb</span><span class="st">"</span></span>
 <span id="cb24-26"><a href=""></a>    <span class="cf">done</span></span>
 <span id="cb24-27"><a href=""></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>This is a Python example running Jupyter notebooks - it could look simpler than this, we’ve just incorporated some functionality to remove some of the metadata that gets stored with the notebook.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2719,10 +2991,23 @@ How to construct DES as RAP?
 <p>It involves checking that the model’s logic, structure and parameters are implemented as planned and free from coding errors.</p>
 </div>
 
+<img data-src="images/verification.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Verification…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/verification.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="verification-and-validation-2" class="slide level2">
 <h2>Verification and validation</h2>
 <div style="font-size: 80%">
@@ -2730,10 +3015,23 @@ How to construct DES as RAP?
 <p>It involves comparing the model’s inputs, behaviour and results to the real system</p>
 </div>
 
+<img data-src="images/validation.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Validation…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/validation.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="verification-and-validation-3" class="slide level2">
 <h2>Verification and validation</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href=""></a><span class="fu"># Verification and validation checklist</span></span>
@@ -2835,6 +3133,20 @@ How to construct DES as RAP?
 <span id="cb25-97"><a href=""></a>Cross validation</span>
 <span id="cb25-98"><a href=""></a></span>
 <span id="cb25-99"><a href=""></a><span class="ss">* </span><span class="va">[ ]</span> Search for similar simulation studies and compare the key assumptions, methods and results. Discuss discrepancies and explain reasons for different findings or approaches. Use insights from other studies to improve or validate your own model.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>In the book, we provide an overview of the main types of verification and validation that people do for DES models.</p>
+<p>But we also make them more actionable, providing a checklist of things you might do for each.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2847,6 +3159,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Pipeline includes a testing framework (unit tests, back tests).</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Tests are often an important component of verification and validation, and important for RAPs as well.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2856,6 +3181,20 @@ How to construct DES as RAP?
 <p>Guidance in DES RAP Book - and in our other resource:</p>
 <p><a href="https://pythonhealthdatascience.github.io/stars-testing-intro/"><img data-src="images/testing_in_research.png"></a></p>
 <p><a href="https://pythonhealthdatascience.github.io/stars-testing-intro/" class="uri">https://pythonhealthdatascience.github.io/stars-testing-intro/</a></p>
+<aside class="notes">
+<p>In the book, we guide you through how to write tests with <code>pytest</code> in Python and <code>testthat</code> in R.</p>
+<p>I also wanted to mention another resource we have, which is more general, and focuses more broadly on how to write Python and R tests for research projects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2869,6 +3208,19 @@ How to construct DES as RAP?
 <li>Python stroke model - <a href="https://github.com/pythonhealthdatascience/pydesrap_stroke" class="uri">https://github.com/pythonhealthdatascience/pydesrap_stroke</a></li>
 <li>R stroke model - <a href="https://github.com/pythonhealthdatascience/rdesrap_stroke" class="uri">https://github.com/pythonhealthdatascience/rdesrap_stroke</a></li>
 </ul>
+<aside class="notes">
+<p>One of the hardest parts I found when getting started with writing DES models was knowing what to test. So when writing tests, this is a great opportunity to look at those four example models I mentioned, and see the sorts of things we tested in there, and how we did it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2879,20 +3231,47 @@ How to construct DES as RAP?
 <p>Quality assurance (QA) is the formal, systematic process of ensuring your analysis meets appropriate standards of quality and is suitable for its intended use. It means <strong>planning how you will check the work, carrying out those checks, and keeping clear evidence of what you did</strong>.</p>
 </div>
 
+<img data-src="images/qa.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Related to all this is the concept of quality assurance. There’s lots of standard government guidance and things around this, which we touch on in the book, but at it’s core, QA is essentially just a formal, systematic process you take to check the quality of you work.</p>
+<p>It means planning how you will check your work, carrying out those checks, and keeping clear evidence of what you did, ideally from the start of the project.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/qa.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="quality-assurance-1" class="slide level2">
 <h2>Quality assurance</h2>
 <div style="font-size: 80%">
 <p>Example: QA in the <a href="https://connect.strategyunitwm.nhs.uk/nhp/project_information/">New Hospital Programme</a> (The Strategy Unit).</p>
 </div>
 
+<img data-src="images/nhp_qa.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>A project I want to shout-out for QA is the New Hospital Programme. They do a bunch of things, but one I really like is the use of GitHub projects and GitHub issues to track there QA for the model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/nhp_qa.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+</section></section>
 <section>
 <section id="style-and-documentation" class="title-slide slide level1 center">
 <h1>Style and documentation</h1>
@@ -2908,6 +3287,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Code adheres to agreed coding standards (e.g PEP8, style guide for Pyspark).</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Maintaining code standards is a requirement in the NHS Levels of RAP.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2916,10 +3308,23 @@ How to construct DES as RAP?
 <h2 data-id="quarto-animate-title">Linting: style guides</h2>
 <p>Set of rules and conventions for writing code.</p>
 
+<img data-src="images/style_guides.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Style guides are a set of rules and conventions for writing code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/style_guides.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="linting-style-guides-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Linting: style guides</h2>
 <p>Set of rules and conventions for writing code.</p>
@@ -2938,6 +3343,19 @@ How to construct DES as RAP?
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/style_guides.png"></p>
 </div></div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2946,10 +3364,23 @@ How to construct DES as RAP?
 <h2 data-id="quarto-animate-title">Linting: linters</h2>
 <p>Analyse code for possible errors and style issues.</p>
 
+<img data-src="images/linting.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/linting.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="linting-linters-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Linting: linters</h2>
 <p>Analyse code for possible errors and style issues.</p>
@@ -2968,6 +3399,19 @@ How to construct DES as RAP?
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/linting.png"></p>
 </div></div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2980,6 +3424,19 @@ How to construct DES as RAP?
 <p><br></p>
 <p>R: Run from the R console</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>lintr<span class="sc">::</span><span class="fu">lint</span>(<span class="st">"code.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2988,10 +3445,23 @@ How to construct DES as RAP?
 <h2 data-id="quarto-animate-title">Linting: code formatters</h2>
 <p>Automatically format your code.</p>
 
+<img data-src="images/code_formatters.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/code_formatters.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="linting-code-formatters-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Linting: code formatters</h2>
 <p>Automatically format your code.</p>
@@ -3011,6 +3481,19 @@ How to construct DES as RAP?
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/code_formatters.png"></p>
 </div></div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3018,6 +3501,19 @@ How to construct DES as RAP?
 <section id="linting-quarto" class="slide level2">
 <h2>Linting: Quarto</h2>
 <p><a href="https://lintquarto.github.io/lintquarto/"><img data-src="images/lintquarto.png"></a></p>
+<aside class="notes">
+<p>One package I want to shout out is my own, it’s a Python package called <code>lintquarto</code>, and it enables you to run linters, formatters, static type checkers and code analysis tools on Python code in Quarto files, if you are using Quarto.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3031,6 +3527,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Code is well-documented including user guidance, explanation of code structure &amp; methodology and docstrings for functions.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Next, comments and docstrings, both important things.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3042,12 +3551,31 @@ How to construct DES as RAP?
 <div class="fragment">
 <p>Why write docstrings?</p>
 <ul>
-<li>Clarify and consistency.</li>
+<li>Clarity and consistency.</li>
 <li>Maintainability and reproducibility.</li>
 <li>Documentation websites.</li>
 <li>Interactive help systems.</li>
 </ul>
 </div>
+<aside class="notes">
+<p><strong>In-line comments</strong> clarify individual lines/sections of code when the logic is otherwise unclear.</p>
+<p><strong>Docstrings</strong> explain the overall purpose of a code object.</p>
+<hr>
+<p>Docstrings make code easier to understand and provide a uniform way to document your work, which is especially valuable when collaborating.</p>
+<p>They help future users (including yourself) see the purpose and usage of code, making ongoing maintenance and reuse simpler and less error-prone</p>
+<p>If you structure your work as a package and build a documentation website, the docstrings are automatically used to generate reference guides and manuals.</p>
+<p>When comments follow a docstring format, you can view them in help panels too.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3074,7 +3602,10 @@ How to construct DES as RAP?
 <span id="cb28-16"><a href=""></a><span class="co">    """</span></span>
 <span id="cb28-17"><a href=""></a>    <span class="cf">return</span> queue_length <span class="op">*</span> avg_service_time</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>Varies between functions, classes, modules, tests, etc. Focus on function example.</p>
+<p>In Python, docstrings are between triple quotes.</p>
+<p>There are popular guides on how to style them like numpydoc and google style.</p>
+<p>This is an example of a numpy style docstring for a function.</p>
+<p>You’ll find they vary a bit between functions, classes, modules and tests.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -3104,6 +3635,20 @@ How to construct DES as RAP?
 <span id="cb29-9"><a href=""></a>estimate_wait_time <span class="ot">&lt;-</span> <span class="cf">function</span>(queue_length, avg_service_time) {</span>
 <span id="cb29-10"><a href=""></a>  queue_length <span class="sc">*</span> avg_service_time</span>
 <span id="cb29-11"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>In R, docstrings always use the <code>roxygen2</code> style.</p>
+<p>It involves tags like <code>param</code> and <code>return</code>, with an example here for an R function.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3116,6 +3661,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥇): Repository automatically runs tests etc. via CI/CD or a different integration/deployment tool e.g.&nbsp;GitHub Actions.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>GitHub actions. Using actions or similar tools are a requirement in the gold tier of the NHS Levels of RAP.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3165,6 +3723,20 @@ How to construct DES as RAP?
 <span data-code-cell="annotated-cell-14" data-code-lines="13,14,15,16,17" data-code-annotation="6">Ordered tasks in a job.</span>
 </dd>
 </dl>
+<aside class="notes">
+<p>GitHub actions are defined in yaml workflow files. This is the basic structure of those files.</p>
+<p>(Hover over and explain).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3179,6 +3751,19 @@ How to construct DES as RAP?
 <li>Documentation</li>
 </ul>
 <p>And more!</p>
+<aside class="notes">
+<p>Some of the key things we use GitHub actions for are to run tests, calculate test coverage, run linters, and build documentation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3210,6 +3795,20 @@ How to construct DES as RAP?
 <span id="cb30-23"><a href=""></a></span>
 <span id="cb30-24"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run tests</span></span>
 <span id="cb30-25"><a href=""></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pytest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>This is an example of a Python action which runs tests.</p>
+<p>This is great, as it means when you push changes to GitHub, your tests run, and if something fails, you’ll quickly notice and be able to change it, rather than making loads of changes, and not noticing until later down the line that something earlier broken everything.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3250,6 +3849,20 @@ How to construct DES as RAP?
 <span id="cb32-29"><a href=""></a>          needs<span class="sc">:</span> check</span>
 <span id="cb32-30"><a href=""></a></span>
 <span id="cb32-31"><a href=""></a>      <span class="sc">-</span> uses<span class="sc">:</span> r<span class="sc">-</span>lib<span class="sc">/</span>actions<span class="sc">/</span>check<span class="sc">-</span>r<span class="sc">-</span>package<span class="sc">@</span>v2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>In R, the <code>usethis</code> package is really handy. If you structure you work as a package, you can just call <code>use_github_action</code> and it will generate the workflow file for you.</p>
+<p>Here we have an example of a workflow file, again, running tests.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3265,6 +3878,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Code is well-documented including user guidance, explanation of code structure &amp; methodology and docstrings for functions.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Documentation is important for making work clear and understandable, and is mentioned alot in the frameworks.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3288,6 +3914,19 @@ How to construct DES as RAP?
 <li><p>✔️ &nbsp;&nbsp; <strong>Acknowledgements</strong> - credit external code or resources used, inspiration from other projects, and any assistance from individuals, large language models (e.g., ChatGPT, Perplexity) or tools that contributed to the work.</p></li>
 </ul>
 </div>
+<aside class="notes">
+<p>If you’ve used GitHub, you’ll be familiar with README files. These are like the entry-point to a repository, so should contain things like a description of the work, the authors, how to install and run the model, the typical run time for the simulation, any funding, affiliation, acknowledgements.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3330,6 +3969,19 @@ How to construct DES as RAP?
 </tbody>
 </table>
 </div>
+<aside class="notes">
+<p>You’ll often see badges used to convey information. Some examples here… licence, DOI, ORCID, R version, status of a GitHub action.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3338,14 +3990,28 @@ How to construct DES as RAP?
 <h2>Documentation: <code>README.md</code></h2>
 <p>All Contributors - <a href="https://allcontributors.org/" class="uri">https://allcontributors.org/</a></p>
 
+<img data-src="images/allcontributors.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>In my projects, I always like to make use of all-contributors. You can read more about them at their website, but they are a great tool for recording who has contributed to the code.</p>
+<p>As not everyone is making GitHub commits and pushing to GitHub, but there might be people reviewing code, providing ideas or troubleshooting, and we can acknowledge them.</p>
+<p>All-contributors will produce a table in your README - this is an example of the table from the README for the DES RAP Book.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/allcontributors.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="documentation-contributing.md" class="slide level2">
 <h2>Documentation: <code>CONTRIBUTING.md</code></h2>
 <p>More technical information on working with the repository - for people who might join you in working on the code, using the code, and for yourself in the future.</p>
-<div class="fragment">
 <p>Example of things to cover:</p>
 <div style="font-size: 50%">
 <ul>
@@ -3357,7 +4023,22 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li><p>✔️ &nbsp;&nbsp; <strong>Contributing</strong> - if people come across the repository and wish to contribute or make suggestions, explain how (e.g., GitHub issue, fork, email, etc.).</p></li>
 </ul>
 </div>
-</div>
+<aside class="notes">
+<p>CONTRIBUTING files are typical of packages, but can be a good place to record more technical information about how to run the model and so on.</p>
+<p>Things like testing, linting, building documentation, and so on.</p>
+<p>To avoid README getting so cluttered!</p>
+<p>And great for teams all working on the same project, or for future reuse or contributions to your work.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3365,6 +4046,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <section id="documentation-website" class="slide level2">
 <h2>Documentation: Website</h2>
 <p><a href="https://quarto.org/"><img data-src="images/quarto.png"></a></p>
+<aside class="notes">
+<p>You can build websites to accompany your model. There’s lots of ways to do this, but one I’m a big fan of is Quarto, which plays nicely with Python and R.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3372,6 +4066,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <section id="documentation-website-1" class="slide level2">
 <h2>Documentation: Website</h2>
 <p><a href="https://posit-dev.github.io/great-docs/"><img data-src="images/great-docs.png"></a></p>
+<aside class="notes">
+<p>A new package I’ve been playing with is Great-Docs, which builds on Quarto, and is good for Python packages, making set up of a documentation site very easy.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3379,6 +4086,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <section>
 <section id="collaboration-and-sharing" class="title-slide slide level1 center">
 <h1>Collaboration and sharing</h1>
+<aside class="notes">
+<p>Finally, collaboration and sharing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3391,6 +4111,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li>NHS Levels of RAP (🥉): Code has been peer reviewed.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Code review is a baseline requirement in the NHS Levels of RAP.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3401,6 +4134,21 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <div class="fragment">
 <p>Recommend doing regularly during development - if possible!</p>
 </div>
+<aside class="notes">
+<p>Code review can spot issues and improve code quality, and also involve ensuring work is reproducible by someone else.</p>
+<hr>
+<p>We recommend doing it regularly during development, if possible.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3409,34 +4157,67 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <h2>Code review</h2>
 <p>Review pull requests:</p>
 
-<!----------------------------------------------------------------------------
-------------------------------- Next slide -----------------------------------
------------------------------------------------------------------------------>
-<img data-src="images/pull_request_reviewer.png" class="r-stretch"></section>
-<section id="code-review-3" class="slide level2">
-<h2>Code review</h2>
-<p>Review pull requests:</p>
-
-<!----------------------------------------------------------------------------
-------------------------------- Next slide -----------------------------------
------------------------------------------------------------------------------>
-<img data-src="images/gitflow.png" class="r-stretch"></section>
-<section id="code-review-4" class="slide level2">
-<h2>Code review</h2>
-<p>Use GitHub issues.</p>
-
-<img data-src="images/issues.png" class="r-stretch"><p>Cool things: (1) issue templates, (2) checklists, (3) sub-issues, (4) GitHub projects.</p>
+<img data-src="images/pull_request_reviewer.png" class="r-stretch"><aside class="notes">
+<p>Pull requests are a great tool for review, which we explain in the book.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 </section>
-<section id="code-review-5" class="slide level2">
+<section id="code-review-3" class="slide level2">
+<h2>Code review</h2>
+<p>Use GitHub issues.</p>
+
+<img data-src="images/issues.png" class="r-stretch"><p>Cool things: (1) issue templates, (2) checklists, (3) sub-issues, (4) GitHub projects.</p>
+<aside class="notes">
+<p>Also GitHub issues are great. With lots of nice features you can make use of like templates, checklists, sub-issues and GitHub projects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!----------------------------------------------------------------------------
+------------------------------- Next slide -----------------------------------
+----------------------------------------------------------------------------->
+</section>
+<section id="code-review-4" class="slide level2">
 <h2>Code review</h2>
 <p>If you don’t have anyone internal who can review your code, there are other options…</p>
 <ul>
 <li>Generative AI tools</li>
 <li>Online communities</li>
 </ul>
+<aside class="notes">
+<p>Quite often, code review is easier said than done.</p>
+<p>If you don’t have anyone who can review code, their are online communities and initiatives.</p>
+<p>The most accessible option that I use alot is generative AI tools. Obviously, being careful around not sharing sensitive information. But these can be great, just provide code, asking it to review, spot any issues, suggest improvements.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3478,6 +4259,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <span id="cb33-19"><a href=""></a>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
 <span id="cb33-20"><a href=""></a>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span id="cb33-21"><a href=""></a>SOFTWARE.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3488,6 +4282,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <div style="text-align:center;">
 <p><strong>No licence = no-one has permission to use your work</strong></p>
 </div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3508,6 +4315,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 </div>
 <p><a href="https://creativecommons.org/chooser/"><img data-src="images/creativecommons.png"></a></p>
 </div></div>
+<aside class="notes">
+<p>For help choosing an appropriate licence…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3523,6 +4343,28 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li class="fragment">Recognise contributors.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Provide citation information alongside your code is important.</p>
+<p>Make sure you (and your collaborators) are recognised as the primary creators of the work.</p>
+<hr>
+<p>When you make citation details easy to find and follow, others are more likely to cite your work. It makes it easier for them to do. Also, many people may not realise that non-traditional research outputs like software should be cited, so including explicit guidance helps educate and encourage users to give you credit.</p>
+<hr>
+<p>Without citation instructions, others may only know your GitHub username. Therefore, it is important to provide all the correct details for a complete and accurate citation: full names, institution, ORCID iDs, software title, DOIs, etc.</p>
+<hr>
+<p>Including your name and contact details in the citation information makes it easy for others to reach you. This can lead to new opportunities for collaboration, feedback, or questions about your work.</p>
+<hr>
+<p>Explicitly list and acknowledge everyone who played a role in the project (including minor contributions). There are structured frameworks which can be used to specify roles, like the Contributor Role Taxonomy (CRediT) for research projects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3531,10 +4373,23 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <h2>Citation: <code>CITATION.cff</code></h2>
 <p><a href="https://citation-file-format.github.io/cffinit/" class="uri">https://citation-file-format.github.io/cffinit/</a></p>
 
+<img data-src="images/cffinit.png" class="r-stretch"><aside class="notes">
+<p>Many repositories use a <code>CITATION.cff</code> file to store structured citation metadata. You can make one easily using the cffinit tool.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/cffinit.png" class="r-stretch"></section>
+</section>
 <section id="citation-citation.cff-1" class="slide level2">
 <h2>Citation: <code>CITATION.cff</code></h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb34-1"><a href=""></a># This CITATION.cff file was generated with cffinit.</span>
@@ -3594,6 +4449,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <span id="cb34-55"><a href=""></a>license: MIT</span>
 <span id="cb34-56"><a href=""></a>version: '0.5.0'</span>
 <span id="cb34-57"><a href=""></a>date-released: '2026-02-20'</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>This is an example of one. It’s just a plain text-file, that is human and machine readable, and supported by tools like GitHub, Zenodo and Zotero.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3607,6 +4475,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li>NHS Levels of RAP (🥇): Changes to the RAP are clearly signposted. E.g. a changelog in the package, releases etc.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Versioning your code and mainintaing a changelog are also good practices to follow.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3625,6 +4506,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li><code>Security</code> in case of vulnerabilities.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3663,6 +4557,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <span id="cb35-30"><a href=""></a>* Initial repository structure: includes README, license, environment files.</span>
 <span id="cb35-31"><a href=""></a>* Project structured as a package.</span>
 <span id="cb35-32"><a href=""></a>* Basic simulation script with just parameter inputs.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>You can see an example of a CHANGELOG here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3670,24 +4577,65 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <section id="changelog-github-releases" class="slide level2">
 <h2>Changelog: GitHub releases</h2>
 
+<img data-src="images/create_release.png" class="r-stretch"><aside class="notes">
+<p>On GitHub, you can create releases for each version of your code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/create_release.png" class="r-stretch"></section>
+</section>
 <section id="changelog-github-releases-1" class="slide level2">
 <h2>Changelog: GitHub releases</h2>
 
+<img data-src="images/release.png" class="r-stretch"><aside class="notes">
+<p>It contains the same information from your changelog.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/release.png" class="r-stretch"></section>
+</section>
 <section id="changelog-github-releases-2" class="slide level2">
 <h2>Changelog: GitHub releases</h2>
 
+<img data-src="images/changes_since_release.png" class="r-stretch"><aside class="notes">
+<p>You can then look at changes in the files since the last release.</p>
+<p>Keeping a changelog and making releases is good, as it means you have clear versions of your code over time. So it might be a version before feedback, then a version after you’ve made changes. Or your prototype, then the version presented in a meeting, then the version from the report, and so on.</p>
+<p>When someone tries to reproduce your results, they can run the exact version of your code that you used, even if the project has moved on.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/changes_since_release.png" class="r-stretch"></section>
+</section>
 <section id="sharing-and-archiving" class="slide level2">
 <h2>Sharing and archiving</h2>
 <div class="pale-gold">
@@ -3696,6 +4644,19 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li>NHS Levels of RAP (🥉): Code is published in the open and linked to &amp; from accompanying publication (if relevant).</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Finally, I want to mention sharing and archiving of code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3704,18 +4665,44 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <h2>Sharing and archiving</h2>
 <p><strong>Reporting guidelines:</strong> for documenting model.</p>
 
+<img data-src="images/reporting_guidelines.png" class="r-stretch"><aside class="notes">
+<p>When sharing, there’s lots of different reporting guidelines, providing guidance on how to document your DES model…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/reporting_guidelines.png" class="r-stretch"></section>
+</section>
 <section id="sharing-and-archiving-2" class="slide level2">
 <h2>Sharing and archiving</h2>
 <p><strong>Sharing guidelines:</strong> for code, data and materials.</p>
 
+<img data-src="images/sharing_guidelines.png" class="r-stretch"><aside class="notes">
+<p>There are also guidelines around how to share code, data and other materials.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/sharing_guidelines.png" class="r-stretch"></section>
+</section>
 <section id="sharing-and-archiving-3" class="slide level2">
 <h2>Sharing and archiving</h2>
 <p><strong>Archives</strong> provide long-term storage guarantees and create a DOI for your code.</p>
@@ -3726,6 +4713,20 @@ instructions on how to do that, what to update for a new release, etc.</p></li>
 <li><a href="https://osf.io/">OSF</a></li>
 <li><a href="https://www.comses.net/">CoMSES Net</a></li>
 </ul>
+<aside class="notes">
+<p>Whilst platforms like GitHub are great for sharing code, they provide no guarantees on how long the code will be stored. For this reason, we recommend also depositing your code in an open science archive.</p>
+<p>…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
