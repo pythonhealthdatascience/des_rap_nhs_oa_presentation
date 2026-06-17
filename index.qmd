@@ -1113,6 +1113,12 @@ For analyses where we might want a package structure, we generally recommend inv
 
 ::::
 
+::: {.notes}
+
+In the walk, we walk and guide step-by-step through creating a package and then using functions from that package in a notebook or R markdown file.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1135,6 +1141,12 @@ For analyses where we might want a package structure, we generally recommend inv
 
 ::::
 
+::: {.notes}
+
+We also provide and link out to template repositories - one for Python and one for R - which contain the complete package structure required, making set-up of a package structure a little easier.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1150,6 +1162,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+The guidelines recommend avoiding code duplication and uses functions or classes where possible.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1157,6 +1175,16 @@ Relevant guidelines:
 ## Code organisation
 
 ![](images/code_structure.png)
+
+::: {.notes}
+
+We want to avoiding having all code in one script and copying and pasting things and so on. It's better to organise code into functions and classes.
+
+This means code is modular - with each component (e.g., function) focused on a specific task.
+
+It makes code easier to read and collaborate on, simpler to maintain, and reduces duplication.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1234,6 +1262,14 @@ print(
 
 ::::
 
+::: {.notes}
+
+Functions are one way to do this which you've likely come across and written before.
+
+You define input parameters, a sequence of steps, and the return output values. Here, are very simple examples estimating wait time from queue length and service time.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1290,11 +1326,32 @@ print(alice.status)
 
 :::
 
+::: {.notes}
+
+Classes may be less familiar.
+
+Using classes is referred to as object-oriented programming.
+
+They're common in Python, but less often used in R.
+
+Classes bundle together data (attributes) and behaviour (methods). They're useful when you:
+
+* Need to keep track of state - remembering information about an object over time, like a patient and their ID, type, times.
+* Also, when you have several related functions operating on the same kind of data, can go all in one class.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
 # Model inputs
+
+::: {.notes}
+
+In this next bit, I'll touch on some of the more DES-specific content in the book, starting with model inputs.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1314,6 +1371,24 @@ Sample from distributions in DES. To choose:
 ::: {.fragment}
 
 Recommend: `distfit` (Python) and `fitdistrplus` (R)
+
+:::
+
+::: {.notes}
+
+As mentioned, DES models sample from distributions, but the process of choosing those distributions is called input modelling. It has two key steps.
+
+---
+
+1. Identify candidate distributions, based on your knowledge of the real process and visual inspection of the data, choosing plausible and contextually appropriate distributions.
+
+---
+
+2. Fit distributions to your data and compare goodness-of-fit.
+
+---
+
+For step 2, we recommend the packages `distfit` and `fitdistrplus`.
 
 :::
 
@@ -1341,6 +1416,12 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 
 ::::
 
+::: {.notes}
+
+In the book, we show how to use them.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1365,6 +1446,12 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 
 ::::
 
+::: {.notes}
+
+Both have lots of functiality like creating various figures around goodness-of-fit.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1373,6 +1460,12 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 
 ![](images/input_data.png)
 
+::: {.notes}
+
+When input modelling, we have three key components: raw data, input modelling code, and the chosen distributions and their parameters.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1380,6 +1473,16 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 ## Input data management
 
 ![](images/input_data_rap.png)
+
+::: {.notes}
+
+A RAP is end-to-end, but some of this information may - or will definitely - be private and sensitive, and cannot be shared.
+
+Internally, it's important to have a RAP that works right from scratch, from raw data.
+
+But what you share might be different - e.g., just sharing parameters, or actually sharing only synthetic parameters.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1392,6 +1495,12 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 Relevant guidelines:
 
 * STARS Reproducibility Recommendations: Avoid hard-coded parameters.
+
+:::
+
+::: {.notes}
+
+In the model code, we want to avoid hard-coding parameters.
 
 :::
 
@@ -1446,6 +1555,16 @@ model <- function() {
 
 * Requires manually changing parameter values in the script.
 * May end up with duplicate scripts.
+
+:::
+
+::: {.notes}
+
+So this means like hard coding them into the model functions themselves.
+
+---
+
+It makes it really hard to change values, meaning you need to manually edit scripts, or to run scenarios, you might end up with duplicate scripts with different values.
 
 :::
 
@@ -1514,6 +1633,20 @@ model <- function() {
 
 :::
 
+::: {.notes}
+
+Global parameters are slightly better. These are no longer hidden in code, but are all defined at the start of the script.
+
+---
+
+They exist outside the model logic, all in one place.
+
+---
+
+However, they are still difficult to change for scenarios, and can become quite messy when there are lots of parameters.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1538,6 +1671,20 @@ model <- function() {
 Either within script or from a file.
 
 Wide range of possibilities. Some examples...
+
+:::
+
+::: {.notes}
+
+We recommend it is better to have all parameters grouped in a dedicated object, and to pass that object explicitly to the model.
+
+---
+
+This means each scenario has its own object with all the parameters needed. We have no global variables, so we don't accidentally reuse old parameters in new scenarios. And we have fewer inputs, if we can pass all our parameters as a single object input to our model.
+
+---
+
+We explore lots of possible ways to do this, both within scripts or importing from data files. Some examples...
 
 :::
 
@@ -1575,6 +1722,12 @@ class Parameters:
         self.consultation_time = consultation_time
         self.transfer_prob = transfer_prob
 ```
+
+:::
+
+::: {.notes}
+
+Here, a Python example with parameters defined as attributes in a class.
 
 :::
 
@@ -1698,6 +1851,12 @@ param = CreateParameters(os.path.join(data_path, "example_parameters.json"))
 
 ::::
 
+::: {.notes}
+
+Here, more complex nested parameters stored in a JSON file, and imported by a class.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1710,11 +1869,29 @@ Either separate function or part of class.
 
 * Validate parameter values
 
+::: {.notes}
+
+It's good to incorporate defensive programming that tries to catch issues when your model runs, particularly around parameters.
+
+Two key things to catch here are:
+
+* Accidentaly creation of new parameters - where you might mistype a parameter name, and not actually change the mean length of stay, as you misspelt it, so it runs with the old value, unknown to you.
+
+* Parameter values - in expected format or range.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
 # Model building
+
+::: {.notes}
+
+Building the DES model.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1730,6 +1907,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+We incorporate randomness into the model, but want to be able to control it, so we can get reproducible results.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1737,6 +1920,16 @@ Relevant guidelines:
 ## Randomness
 
 ![](images/prng.png)
+
+::: {.notes}
+
+Computers can't generate "true" randomness. Instead, they use pseudorandom number generators (PRNGs).
+
+These are algorithms that produce a sequence of numbers that appear random, but are actually determined by an initial starting point called a seed. If you don't set a seed, they will use something that changes rapidly, like the current system time.
+
+For reproducible experiments, we want to set the seed, we we can recreate simulation results.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1764,6 +1957,18 @@ samples = exp.sample(size=3)
 
 :::
 
+::: {.notes}
+
+In Python, `numpy` is widely used for this. We create a generator object - here called `rng`. We then use this when sampling.
+
+Another package from Tom Monks in our team is `sim-tools`, which uses `numpy` underneath the hood.
+
+---
+
+We tend to use `sim-tools` in our work as it allows us to avoid the problem of shared random number generators.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1773,6 +1978,12 @@ samples = exp.sample(size=3)
 `sim-tools` can help with problem of shared random number generators.
 
 ![](images/shared_generators.png)
+
+::: {.notes}
+
+It's a little complex to explain, so I won't go over it now, but we walk through it in the book.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1798,6 +2009,14 @@ set.seed(1L)
 arrivals <- vexp(n = 3L, rate = 1L / 3L)
 processing <- vnorm(n = 3L, mean = 10L, sd = 2L)
 ```
+
+::: {.notes}
+
+In R, the `stats` package is typically used for sampling from distributions.
+
+There is also a package called `simEd` which again avoids the shared generator problem - but we haven't typically used it in our work, as we found it was slower than the `stats` package, and as the shared generator problem is not too big an issue either way, it's just good to be aware of if you are sampling.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1825,6 +2044,20 @@ We guide through creating incrementally...
 
 :::
 
+::: {.notes}
+
+In the book, we walk through setting up a basic model incrementally, starting just with code that generates arrivals.
+
+---
+
+We then add on resource usage.
+
+---
+
+We use `simpy` (python) and `simmer` (R), which are the most popular DES packages in each language.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1832,6 +2065,12 @@ We guide through creating incrementally...
 ## Initialisation bias {auto-animate="true"}
 
 ![](images/initialisation_bias.png){fig-align="center"}
+
+::: {.notes}
+
+When building the model, we need to deal with initialisation bias. This is when the model starts in an “empty” state that does not match how the real system normally operates.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1848,9 +2087,13 @@ Two main strategies:
 
 ::: {.notes}
 
-Initial conditions can be harder as require relevant data for determining appropriate start state.
+There are two main strategies:
 
-So in book, we show how to do warm-up period. With SimPy and with simmer - as both require quite different strategies.
+1. Initial conditions - start the model with some entities or resources already present - though this can be difficult, as it requires relevant data for determining an appropriate starting state, and therefore, we focus on-
+
+2. Warm-up period - run the model for a while until it reaches a steady state, then begin collecting results from that point onwards.
+
+Implementing a warm-up period requires quite different strategies for `simpy` v.s., `simmer`.
 
 :::
 
@@ -1863,6 +2106,12 @@ So in book, we show how to do warm-up period. With SimPy and with simmer - as bo
 Time series inspection approach.
 
 ![](images/warm_up.png){fig-align="center"}
+
+::: {.notes}
+
+We choose the length of the warm-up period using the time series inspection approach, looking at the cumulative mean for a given performance measure over time.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -1879,6 +2128,14 @@ How?
 * Record performance measures at regular intervals.
 * Run multiple replications and long run length.
 
+::: {.notes}
+
+This requires that we are able to record performance measures at regular intervals during the model run.
+
+We need to run multiple replications and long run length too.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1886,6 +2143,10 @@ How?
 ## Replications
 
 ![](images/varying_outputs.png){fig-align="center"}
+
+::: {.notes}
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
