@@ -2146,6 +2146,8 @@ We need to run multiple replications and long run length too.
 
 ::: {.notes}
 
+We have to run the model multiple times, getting different results each time, and then we find the average of those.
+
 :::
 
 <!----------------------------------------------------------------------------
@@ -2157,6 +2159,12 @@ We need to run multiple replications and long run length too.
 Confidence interval method - manual or automated.
 
 ![](images/conf_int_method.png){fig-align="center"}
+
+::: {.notes}
+
+In the book, to choose the length of the warm-up period, we use the confidence interval method, with manual or automated options. It involves running the simulation for an increasing number of times, and finding the point at which the confidence interval of the results is stable and narrow.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2172,6 +2180,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+Ideally, we want a model to run as fast as it can.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2179,6 +2193,14 @@ Relevant guidelines:
 ## Parallel processing
 
 ![](images/parallel.png){fig-align="center"}
+
+::: {.notes}
+
+Typically, the model will run replications sequentially, one after the other.
+
+However, when we set up parallel processing, which we use the `joblib` and `future` packages to do, they can at the same time on different cores.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2196,6 +2218,12 @@ Relevant guidelines:
 * Backlogged patient count
 * Backlogged patient mean wait time
 
+::: {.notes}
+
+In the book, we show how to record nine different typical DES performance measures, but you'll find there are many more things you can output from the model too.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2207,6 +2235,12 @@ Relevant guidelines:
 Relevant guidelines:
 
 * NHS Levels of RAP (🥈): Logs are automatically recorded by the pipeline to ensure outputs are as expected.
+
+:::
+
+::: {.notes}
+
+The NHS Levels of RAP encourages recording logs in your analysis.
 
 :::
 
@@ -2232,6 +2266,14 @@ self.logger.log(
 
 Output to console or save to file.
 
+::: {.notes}
+
+In Python, this can be done simply using `print` statements.
+
+We also explore how you can get more fancy, and use the `logging` and `rich` packages, and save your logs to a file as well.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2241,6 +2283,12 @@ Output to console or save to file.
 Run `simmer` with `verbose = TRUE`:
 
 ![](images/simmer_logs.png)
+
+::: {.notes}
+
+In R, `simmer` will provide `logs` if you set `verbose` to `TRUE`. These are great, if a little hard to read.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2252,6 +2300,12 @@ Custom logs using `simmer::log_()`:
 
 ![](images/simmer_custom.png)
 
+::: {.notes}
+
+It is possible to create custom logs with the `log_()` function, although we do typically just use the basic ones, but this is a great option to explore too, to produce logs that are easier to read.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2260,6 +2314,12 @@ Custom logs using `simmer::log_()`:
 
 ![](images/model_structure_python.png){fig-align="center"}
 
+::: {.notes}
+
+As we build the model, we are using a modular structure. This is just a simplified view here, but to show that, in Python, we use different classes that are working together, that contain parameters, patient attributes, the model logic, as well as classes to run the model and log results.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2267,6 +2327,12 @@ Custom logs using `simmer::log_()`:
 ## Modular model structure
 
 ![](images/model_structure_r.png)
+
+::: {.notes}
+
+We do the same in the R model but with functions, to return parameters, provide model logic, run the model, filter out warm-up results, and calculate performance measures.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2291,6 +2357,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+In our analyses, we want to think about how we are saving to output files, and sharing code.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2306,6 +2378,16 @@ Relevant guidelines:
 ::: {.fragment}
 
 **Sensitivity analysis:** Assess impact of parameter changes on outcomes. Purpose is to understand how uncertainty in inputs affects the model.
+
+:::
+
+::: {.notes}
+
+For DES, we have scenario analysis, which involves running a set of pre-defined situations plausible and relevant to problem being studied. The purpose is to understand how system operates under different scenarios.
+
+---
+
+We also run sensitivity analyses, which assess how changes in parameter values impact on outcomes. This aims to understand how uncertainty in inputs affects the model, and how robust it is to uncertainty in inputs.
 
 :::
 
@@ -2337,6 +2419,14 @@ scenario_results <- do.call(rbind, results)
 kable(scenario_results) |> scroll_box(height = "400px")
 ```
 
+::: {.notes}
+
+Two things to remember. One is to run scenarios programmatically.
+
+For example here, we run through different scenarios of different numbers of doctors in a loop, getting results from each scenario and saving those.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2348,6 +2438,12 @@ Two important things to remember:
 **1. Run scenarios programmatically.**
 
 **2. Share your scenario code.**
+
+::: {.notes}
+
+And also, to make sure to share that code. As it is very often not shared, at least in models you find published in journals.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2366,6 +2462,12 @@ Relevant guidelines:
 
 **Key point: share code!**
 
+::: {.notes}
+
+Again, for tables and figures, we want to write code that makes those, and make sure to save and share that code.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2383,6 +2485,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+You'll recall that a RAP involves running our analysis from end-to-end with minimal intervention. There's a few different ways to do this...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2434,6 +2542,24 @@ Tool that builds on Makefile, supporting very complex pipelines and lots of tool
 
 :::
 
+::: {.notes}
+
+main...
+
+---
+
+bash...
+
+---
+
+makefile...
+
+---
+
+snakemake...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2484,6 +2610,12 @@ Tool that builds on Makefile, supporting very complex pipelines and lots of tool
 :::
 
 ::::
+
+::: {.notes}
+
+In the book, we focus on bash, as it can run different file types, so is well suited to our project structure, where we might have analysis in python files, r files, notebooks or rmarkdown files.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2505,6 +2637,14 @@ done
 
 echo "Rendering complete!"
 ```
+
+::: {.notes}
+
+This is an example of bash script, which we would run from the terminal or from Git Bash on windows.
+
+Here, it is running all the R markdown files in a directory.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2542,6 +2682,12 @@ else
 fi
 ```
 
+::: {.notes}
+
+This is a Python example running Jupyter notebooks - it could look simpler than this, we've just incorporated some functionality to remove some of the metadata that gets stored with the notebook.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2564,6 +2710,13 @@ It involves checking that the model’s logic, structure and parameters are impl
 
 ![](images/verification.png){fig-align="center"}
 
+
+::: {.notes}
+
+Verification...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2579,6 +2732,12 @@ It involves comparing the model’s inputs, behaviour and results to the real sy
 :::
 
 ![](images/validation.png){fig-align="center"}
+
+::: {.notes}
+
+Validation...
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2688,6 +2847,14 @@ Cross validation
 * [ ] Search for similar simulation studies and compare the key assumptions, methods and results. Discuss discrepancies and explain reasons for different findings or approaches. Use insights from other studies to improve or validate your own model.
 ```
 
+::: {.notes}
+
+In the book, we provide an overview of the main types of verification and validation that people do for DES models.
+
+But we also make them more actionable, providing a checklist of things you might do for each.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2699,6 +2866,12 @@ Cross validation
 Relevant guidelines:
 
 * NHS Levels of RAP (🥈): Pipeline includes a testing framework (unit tests, back tests).
+
+:::
+
+::: {.notes}
+
+Tests are often an important component of verification and validation, and important for RAPs as well.
 
 :::
 
@@ -2714,6 +2887,14 @@ Guidance in DES RAP Book - and in our other resource:
 
 <https://pythonhealthdatascience.github.io/stars-testing-intro/>
 
+::: {.notes}
+
+In the book, we guide you through how to write tests with `pytest` in Python and `testthat` in R.
+
+I also wanted to mention another resource we have, which is more general, and focuses more broadly on how to write Python and R tests for research projects.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2726,6 +2907,12 @@ Stuck for ideas? See example repositories
 * R M/M/s model - <https://github.com/pythonhealthdatascience/rdesrap_mms>
 * Python stroke model - <https://github.com/pythonhealthdatascience/pydesrap_stroke>
 * R stroke model - <https://github.com/pythonhealthdatascience/rdesrap_stroke>
+
+::: {.notes}
+
+One of the hardest parts I found when getting started with writing DES models was knowing what to test. So when writing tests, this is a great opportunity to look at those four example models I mentioned, and see the sorts of things we tested in there, and how we did it.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2741,6 +2928,14 @@ Quality assurance (QA) is the formal, systematic process of ensuring your analys
 
 ![](images/qa.png){fig-align="center"}
 
+::: {.notes}
+
+Related to all this is the concept of quality assurance. There's lots of standard government guidance and things around this, which we touch on in the book, but at it's core, QA is essentially just a formal, systematic process you take to check the quality of you work.
+
+It means planning how you will check your work, carrying out those checks, and keeping clear evidence of what you did, ideally from the start of the project.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2754,6 +2949,12 @@ Example: QA in the [New Hospital Programme](https://connect.strategyunitwm.nhs.u
 :::
 
 ![](images/nhp_qa.png){fig-align="center"}
+
+::: {.notes}
+
+A project I want to shout-out for QA is the New Hospital Programme. They do a bunch of things, but one I really like is the use of GitHub projects and GitHub issues to track there QA for the model.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2775,6 +2976,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+Maintaining code standards is a requirement in the NHS Levels of RAP.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2784,6 +2991,12 @@ Relevant guidelines:
 Set of rules and conventions for writing code.
 
 ![](images/style_guides.png){fig-align="center"}
+
+::: {.notes}
+
+Style guides are a set of rules and conventions for writing code.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2817,6 +3030,12 @@ Popular examples in R:
 
 ::::
 
+::: {.notes}
+
+...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2826,6 +3045,12 @@ Popular examples in R:
 Analyse code for possible errors and style issues.
 
 ![](images/linting.png){fig-align="center"}
+
+::: {.notes}
+
+...
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2859,6 +3084,12 @@ Popular in R:
 
 ::::
 
+::: {.notes}
+
+...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2881,6 +3112,12 @@ R: Run from the R console
 lintr::lint("code.R")
 ```
 
+::: {.notes}
+
+...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2890,6 +3127,12 @@ lintr::lint("code.R")
 Automatically format your code.
 
 ![](images/code_formatters.png){fig-align="center"}
+
+::: {.notes}
+
+...
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2924,6 +3167,12 @@ Popular examples in R:
 
 ::::
 
+::: {.notes}
+
+...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -2931,6 +3180,12 @@ Popular examples in R:
 ## Linting: Quarto
 
 [![](images/lintquarto.png)](https://lintquarto.github.io/lintquarto/)
+
+::: {.notes}
+
+One package I want to shout out is my own, it's a Python package called `lintquarto`, and it enables you to run linters, formatters, static type checkers and code analysis tools on Python code in Quarto files, if you are using Quarto.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -2944,6 +3199,12 @@ Relevant guidelines:
 
 * STARS Reproducibility Recommendations: Comment sufficiently.
 * NHS Levels of RAP (🥈): Code is well-documented including user guidance, explanation of code structure & methodology and docstrings for functions.
+
+:::
+
+::: {.notes}
+
+Next, comments and docstrings, both important things.
 
 :::
 
@@ -2961,10 +3222,29 @@ Relevant guidelines:
 
 Why write docstrings?
 
-* Clarify and consistency.
+* Clarity and consistency.
 * Maintainability and reproducibility.
 * Documentation websites.
 * Interactive help systems.
+
+:::
+
+
+::: {.notes}
+
+**In-line comments** clarify individual lines/sections of code when the logic is otherwise unclear.
+
+**Docstrings** explain the overall purpose of a code object.
+
+---
+
+Docstrings make code easier to understand and provide a uniform way to document your work, which is especially valuable when collaborating.
+
+They help future users (including yourself) see the purpose and usage of code, making ongoing maintenance and reuse simpler and less error-prone
+
+If you structure your work as a package and build a documentation website, the docstrings are automatically used to generate reference guides and manuals.
+
+When comments follow a docstring format, you can view them in help panels too.
 
 :::
 
@@ -3000,7 +3280,13 @@ def estimate_wait_time(queue_length, avg_service_time):
 
 ::: {.notes}
 
-Varies between functions, classes, modules, tests, etc. Focus on function example.
+In Python, docstrings are between triple quotes.
+
+There are popular guides on how to style them like numpydoc and google style.
+
+This is an example of a numpy style docstring for a function.
+
+You'll find they vary a bit between functions, classes, modules and tests.
 
 :::
 
@@ -3026,6 +3312,14 @@ estimate_wait_time <- function(queue_length, avg_service_time) {
 }
 ```
 
+::: {.notes}
+
+In R, docstrings always use the `roxygen2` style.
+
+It involves tags like `param` and `return`, with an example here for an R function.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3037,6 +3331,12 @@ estimate_wait_time <- function(queue_length, avg_service_time) {
 Relevant guidelines:
 
 * NHS Levels of RAP (🥇): Repository automatically runs tests etc. via CI/CD or a different integration/deployment tool e.g. GitHub Actions.
+
+:::
+
+::: {.notes}
+
+GitHub actions. Using actions or similar tools are a requirement in the gold tier of the NHS Levels of RAP.
 
 :::
 
@@ -3073,6 +3373,14 @@ jobs: # <3>
 5. Access granted to workflow.
 6. Ordered tasks in a job.
 
+::: {.notes}
+
+GitHub actions are defined in yaml workflow files. This is the basic structure of those files.
+
+(Hover over and explain).
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3087,6 +3395,12 @@ Use GitHub actions for:
 * Documentation
 
 And more!
+
+::: {.notes}
+
+Some of the key things we use GitHub actions for are to run tests, calculate test coverage, run linters, and build documentation.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3121,6 +3435,14 @@ jobs:
       - name: Run tests
         run: pytest
 ```
+
+::: {.notes}
+
+This is an example of a Python action which runs tests.
+
+This is great, as it means when you push changes to GitHub, your tests run, and if something fails, you'll quickly notice and be able to change it, rather than making loads of changes, and not noticing until later down the line that something earlier broken everything.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3170,6 +3492,14 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
 ```
 
+::: {.notes}
+
+In R, the `usethis` package is really handy. If you structure you work as a package, you can just call `use_github_action` and it will generate the workflow file for you.
+
+Here we have an example of a workflow file, again, running tests.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3184,6 +3514,12 @@ Relevant guidelines:
 * STARS Reproducibility Recommendations: State run times and machine specifications.
 * NHS Levels of RAP (🥉): Repository includes a README.md file (or equivalent) that clearly details steps a user must follow to reproduce the code (use NHS Open Source Policy section on Readmes as a guide).
 * NHS Levels of RAP (🥈): Code is well-documented including user guidance, explanation of code structure & methodology and docstrings for functions.
+
+:::
+
+::: {.notes}
+
+Documentation is important for making work clear and understandable, and is mentioned alot in the frameworks.
 
 :::
 
@@ -3223,6 +3559,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+If you've used GitHub, you'll be familiar with README files. These are like the entry-point to a repository, so should contain things like a description of the work, the authors, how to install and run the model, the typical run time for the simulation, any funding, affiliation, acknowledgements.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3242,6 +3584,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+You'll often see badges used to convey information. Some examples here... licence, DOI, ORCID, R version, status of a GitHub action.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3252,6 +3600,16 @@ All Contributors - <https://allcontributors.org/>
 
 ![](images/allcontributors.png){fig-align="center"}
 
+::: {.notes}
+
+In my projects, I always like to make use of all-contributors. You can read more about them at their website, but they are a great tool for recording who has contributed to the code.
+
+As not everyone is making GitHub commits and pushing to GitHub, but there might be people reviewing code, providing ideas or troubleshooting, and we can acknowledge them.
+
+All-contributors will produce a table in your README - this is an example of the table from the README for the DES RAP Book.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3259,8 +3617,6 @@ All Contributors - <https://allcontributors.org/>
 ## Documentation: `CONTRIBUTING.md`
 
 More technical information on working with the repository - for people who might join you in working on the code, using the code, and for yourself in the future.
-
-::: {.fragment}
 
 Example of things to cover:
 
@@ -3279,6 +3635,16 @@ Example of things to cover:
 
 :::
 
+::: {.notes}
+
+CONTRIBUTING files are typical of packages, but can be a good place to record more technical information about how to run the model and so on.
+
+Things like testing, linting, building documentation, and so on.
+
+To avoid README getting so cluttered!
+
+And great for teams all working on the same project, or for future reuse or contributions to your work.
+
 :::
 
 <!----------------------------------------------------------------------------
@@ -3289,6 +3655,12 @@ Example of things to cover:
 
 [![](images/quarto.png)](https://quarto.org/)
 
+::: {.notes}
+
+You can build websites to accompany your model. There's lots of ways to do this, but one I'm a big fan of is Quarto, which plays nicely with Python and R.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3297,11 +3669,23 @@ Example of things to cover:
 
 [![](images/great-docs.png)](https://posit-dev.github.io/great-docs/)
 
+::: {.notes}
+
+A new package I've been playing with is Great-Docs, which builds on Quarto, and is good for Python packages, making set up of a documentation site very easy.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
 
 # Collaboration and sharing
+
+::: {.notes}
+
+Finally, collaboration and sharing.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3314,6 +3698,12 @@ Example of things to cover:
 Relevant guidelines:
 
 * NHS Levels of RAP (🥉): Code has been peer reviewed.
+
+:::
+
+::: {.notes}
+
+Code review is a baseline requirement in the NHS Levels of RAP.
 
 :::
 
@@ -3331,6 +3721,16 @@ Recommend doing regularly during development - if possible!
 
 :::
 
+::: {.notes}
+
+Code review can spot issues and improve code quality, and also involve ensuring work is reproducible by someone else.
+
+---
+
+We recommend doing it regularly during development, if possible.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3341,15 +3741,11 @@ Review pull requests:
 
 ![](images/pull_request_reviewer.png)
 
-<!----------------------------------------------------------------------------
-------------------------------- Next slide -----------------------------------
------------------------------------------------------------------------------>
+::: {.notes}
 
-## Code review
+Pull requests are a great tool for review, which we explain in the book.
 
-Review pull requests:
-
-![](images/gitflow.png)
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3363,6 +3759,12 @@ Use GitHub issues.
 
 Cool things: (1) issue templates, (2) checklists, (3) sub-issues, (4) GitHub projects.
 
+::: {.notes}
+
+Also GitHub issues are great. With lots of nice features you can make use of like templates, checklists, sub-issues and GitHub projects.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3373,6 +3775,16 @@ If you don't have anyone internal who can review your code, there are other opti
 
 * Generative AI tools
 * Online communities
+
+::: {.notes}
+
+Quite often, code review is easier said than done.
+
+If you don't have anyone who can review code, their are online communities and initiatives.
+
+The most accessible option that I use alot is generative AI tools. Obviously, being careful around not sharing sensitive information. But these can be great, just provide code, asking it to review, spot any issues, suggest improvements.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3422,6 +3834,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+::: {.notes}
+
+...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3433,6 +3851,12 @@ SOFTWARE.
 ::: {style="text-align:center;"}
 
 **No licence = no-one has permission to use your work**
+
+:::
+
+::: {.notes}
+
+...
 
 :::
 
@@ -3473,6 +3897,12 @@ For text:
 
 ::::
 
+::: {.notes}
+
+For help choosing an appropriate licence...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3489,6 +3919,30 @@ For text:
 
 :::
 
+::: {.notes}
+
+Provide citation information alongside your code is important.
+
+Make sure you (and your collaborators) are recognised as the primary creators of the work.
+
+---
+
+When you make citation details easy to find and follow, others are more likely to cite your work. It makes it easier for them to do. Also, many people may not realise that non-traditional research outputs like software should be cited, so including explicit guidance helps educate and encourage users to give you credit.
+
+---
+
+Without citation instructions, others may only know your GitHub username. Therefore, it is important to provide all the correct details for a complete and accurate citation: full names, institution, ORCID iDs, software title, DOIs, etc.
+
+---
+
+Including your name and contact details in the citation information makes it easy for others to reach you. This can lead to new opportunities for collaboration, feedback, or questions about your work.
+
+---
+
+Explicitly list and acknowledge everyone who played a role in the project (including minor contributions). There are structured frameworks which can be used to specify roles, like the Contributor Role Taxonomy (CRediT) for research projects.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3498,6 +3952,12 @@ For text:
 <https://citation-file-format.github.io/cffinit/>
 
 ![](images/cffinit.png)
+
+::: {.notes}
+
+Many repositories use a `CITATION.cff` file to store structured citation metadata. You can make one easily using the cffinit tool.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3565,6 +4025,12 @@ version: '0.5.0'
 date-released: '2026-02-20'
 ```
 
+::: {.notes}
+
+This is an example of one. It's just a plain text-file, that is human and machine readable, and supported by tools like GitHub, Zenodo and Zotero.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3577,6 +4043,12 @@ Relevant guidelines:
 
 * STARS Reproducibility Recommendations: Link publication to a specific version of the code.
 * NHS Levels of RAP (🥇): Changes to the RAP are clearly signposted. E.g. a changelog in the package, releases etc.
+
+:::
+
+::: {.notes}
+
+Versioning your code and mainintaing a changelog are also good practices to follow.
 
 :::
 
@@ -3598,6 +4070,12 @@ Various conventions - e.g., [Keep a Changelog](https://keepachangelog.com/en/1.1
 * `Fixed` for any bug fixes.
 * `Deprecated` for soon-to-be-removed features.
 * `Security` in case of vulnerabilities.
+
+:::
+
+::: {.notes}
+
+...
 
 :::
 
@@ -3642,6 +4120,12 @@ First release of the repository, providing a minimal project structure with init
 * Basic simulation script with just parameter inputs.
 ```
 
+::: {.notes}
+
+You can see an example of a CHANGELOG here.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3649,6 +4133,12 @@ First release of the repository, providing a minimal project structure with init
 ## Changelog: GitHub releases
 
 ![](images/create_release.png)
+
+::: {.notes}
+
+On GitHub, you can create releases for each version of your code.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3658,6 +4148,12 @@ First release of the repository, providing a minimal project structure with init
 
 ![](images/release.png)
 
+::: {.notes}
+
+It contains the same information from your changelog.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3665,6 +4161,16 @@ First release of the repository, providing a minimal project structure with init
 ## Changelog: GitHub releases
 
 ![](images/changes_since_release.png)
+
+::: {.notes}
+
+You can then look at changes in the files since the last release.
+
+Keeping a changelog and making releases is good, as it means you have clear versions of your code over time. So it might be a version before feedback, then a version after you've made changes. Or your prototype, then the version presented in a meeting, then the version from the report, and so on.
+
+When someone tries to reproduce your results, they can run the exact version of your code that you used, even if the project has moved on.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3680,6 +4186,12 @@ Relevant guidelines:
 
 :::
 
+::: {.notes}
+
+Finally, I want to mention sharing and archiving of code.
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3690,6 +4202,12 @@ Relevant guidelines:
 
 ![](images/reporting_guidelines.png)
 
+::: {.notes}
+
+When sharing, there's lots of different reporting guidelines, providing guidance on how to document your DES model...
+
+:::
+
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -3699,6 +4217,12 @@ Relevant guidelines:
 **Sharing guidelines:** for code, data and materials.
 
 ![](images/sharing_guidelines.png)
+
+::: {.notes}
+
+There are also guidelines around how to share code, data and other materials.
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
@@ -3714,6 +4238,14 @@ Examples:
 * [Figshare](https://figshare.com/)
 * [OSF](https://osf.io/)
 * [CoMSES Net](https://www.comses.net/)
+
+::: {.notes}
+
+Whilst platforms like GitHub are great for sharing code, they provide no guarantees on how long the code will be stored. For this reason, we recommend also depositing your code in an open science archive.
+
+...
+
+:::
 
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
