@@ -513,6 +513,10 @@ Alongside this resource are four complete example repositories - two Python, and
 
 In this webinar, I'm going to walk through the topics covered in the book. Though I'll only touch on each briefly, you can go to the book to get a full deep dive and detailed information on each, with code and more explanations.
 
+Aim today is to give a flavour, and if you hear anything and think, ooo, I'd like to learn more about that, everything I mentioned is in the book, so you can go there and learn more about it.
+
+Apologies in advance, it's going to feel like quite a fast-paced talk.
+
 :::
 
 <!----------------------------------------------------------------------------
@@ -653,11 +657,11 @@ Acts like a time capsule, return to project later and run with same packages and
 
 ---
 
-Isolate environments for different projects, so each can own set of packages and version of python or R.
+Dependency management also important for collaboration, so everyone on team uses same set-up.
 
 ---
 
-Dependency management also important for collaboration, so everyone on team uses same set-up.
+Isolate environments for different projects, so each can own set of packages and version of python or R.
 
 :::
 
@@ -1059,7 +1063,11 @@ It encourages us to create a well-organised repository following standardised es
 
 ---
 
-It helps keep the model and analysis code separate, improving maintainability, reusability, and reducing the risk of unintended side effects.
+It helps keep the model and analysis code separate.
+
+---
+
+Improves maintainability and reusability.
 
 ---
 
@@ -1376,7 +1384,7 @@ Recommend: `distfit` (Python) and `fitdistrplus` (R)
 
 ::: {.notes}
 
-As mentioned, DES models sample from distributions, but the process of choosing those distributions is called input modelling. It has two key steps.
+As mentioned, DES models sample from distributions, and the process of choosing those distributions is called input modelling. It has two key steps.
 
 ---
 
@@ -2162,7 +2170,7 @@ Confidence interval method - manual or automated.
 
 ::: {.notes}
 
-In the book, to choose the length of the warm-up period, we use the confidence interval method, with manual or automated options. It involves running the simulation for an increasing number of times, and finding the point at which the confidence interval of the results is stable and narrow.
+In the book, to choose the number of replications, we use the confidence interval method, with manual or automated options. It involves running the simulation for an increasing number of times, and finding the point at which the confidence interval of the results is stable and narrow.
 
 :::
 
