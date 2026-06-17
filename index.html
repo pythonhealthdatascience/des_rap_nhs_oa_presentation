@@ -1359,6 +1359,19 @@ How to construct DES as RAP?
 </div><div class="column">
 <p><img data-src="images/package_r.png"></p>
 </div></div>
+<aside class="notes">
+<p>In the walk, we walk and guide step-by-step through creating a package and then using functions from that package in a notebook or R markdown file.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1371,6 +1384,19 @@ How to construct DES as RAP?
 </div><div class="column">
 <p><a href="https://github.com/pythonhealthdatascience/rdesrap_template"><img data-src="images/rdesrap_template.png"></a></p>
 </div></div>
+<aside class="notes">
+<p>We also provide and link out to template repositories - one for Python and one for R - which contain the complete package structure required, making set-up of a package structure a little easier.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1384,6 +1410,19 @@ How to construct DES as RAP?
 <li>NHS Levels of RAP (🥈): Reusable functions and/or classes are used where appropriate.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>The guidelines recommend avoiding code duplication and uses functions or classes where possible.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1391,10 +1430,25 @@ How to construct DES as RAP?
 <section id="code-organisation-1" class="slide level2">
 <h2>Code organisation</h2>
 
+<img data-src="images/code_structure.png" class="r-stretch"><aside class="notes">
+<p>We want to avoiding having all code in one script and copying and pasting things and so on. It’s better to organise code into functions and classes.</p>
+<p>This means code is modular - with each component (e.g., function) focused on a specific task.</p>
+<p>It makes code easier to read and collaborate on, simpler to maintain, and reduces duplication.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/code_structure.png" class="r-stretch"></section>
+</section>
 <section id="code-organisation-functions" class="slide level2">
 <h2>Code organisation: functions</h2>
 <div class="columns">
@@ -1447,6 +1501,20 @@ How to construct DES as RAP?
 <span id="cb8-19"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<aside class="notes">
+<p>Functions are one way to do this which you’ve likely come across and written before.</p>
+<p>You define input parameters, a sequence of steps, and the return output values. Here, are very simple examples estimating wait time from queue length and service time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1498,6 +1566,26 @@ How to construct DES as RAP?
 <span id="cb9-42"><a href=""></a>alice <span class="op">=</span> Patient(patient_id<span class="op">=</span><span class="dv">1</span>, arrival_time<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb9-43"><a href=""></a><span class="bu">print</span>(alice.status)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<aside class="notes">
+<p>Classes may be less familiar.</p>
+<p>Using classes is referred to as object-oriented programming.</p>
+<p>They’re common in Python, but less often used in R.</p>
+<p>Classes bundle together data (attributes) and behaviour (methods). They’re useful when you:</p>
+<ul>
+<li>Need to keep track of state - remembering information about an object over time, like a patient and their ID, type, times.</li>
+<li>Also, when you have several related functions operating on the same kind of data, can go all in one class.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1505,6 +1593,19 @@ How to construct DES as RAP?
 <section>
 <section id="model-inputs" class="title-slide slide level1 center">
 <h1>Model inputs</h1>
+<aside class="notes">
+<p>In this next bit, I’ll touch on some of the more DES-specific content in the book, starting with model inputs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1519,6 +1620,29 @@ How to construct DES as RAP?
 <div class="fragment">
 <p>Recommend: <code>distfit</code> (Python) and <code>fitdistrplus</code> (R)</p>
 </div>
+<aside class="notes">
+<p>As mentioned, DES models sample from distributions, but the process of choosing those distributions is called input modelling. It has two key steps.</p>
+<hr>
+<ol type="1">
+<li>Identify candidate distributions, based on your knowledge of the real process and visual inspection of the data, choosing plausible and contextually appropriate distributions.</li>
+</ol>
+<hr>
+<ol start="2" type="1">
+<li>Fit distributions to your data and compare goodness-of-fit.</li>
+</ol>
+<hr>
+<p>For step 2, we recommend the packages <code>distfit</code> and <code>fitdistrplus</code>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1532,6 +1656,19 @@ How to construct DES as RAP?
 </div><div class="column">
 <p><img data-src="images/fitdistrplus.png"></p>
 </div></div>
+<aside class="notes">
+<p>In the book, we show how to use them.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1545,6 +1682,19 @@ How to construct DES as RAP?
 </div><div class="column">
 <p><img data-src="images/fitdistrplus_plots.png"></p>
 </div></div>
+<aside class="notes">
+<p>Both have lots of functiality like creating various figures around goodness-of-fit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1552,17 +1702,45 @@ How to construct DES as RAP?
 <section id="input-data-management" class="slide level2">
 <h2>Input data management</h2>
 
+<img data-src="images/input_data.png" class="r-stretch"><aside class="notes">
+<p>When input modelling, we have three key components: raw data, input modelling code, and the chosen distributions and their parameters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/input_data.png" class="r-stretch"></section>
+</section>
 <section id="input-data-management-1" class="slide level2">
 <h2>Input data management</h2>
 
+<img data-src="images/input_data_rap.png" class="r-stretch"><aside class="notes">
+<p>A RAP is end-to-end, but some of this information may - or will definitely - be private and sensitive, and cannot be shared.</p>
+<p>Internally, it’s important to have a RAP that works right from scratch, from raw data.</p>
+<p>But what you share might be different - e.g., just sharing parameters, or actually sharing only synthetic parameters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/input_data_rap.png" class="r-stretch"></section>
+</section>
 <section id="parameters" class="slide level2">
 <h2>Parameters</h2>
 <div class="pale-gold">
@@ -1571,6 +1749,19 @@ How to construct DES as RAP?
 <li>STARS Reproducibility Recommendations: Avoid hard-coded parameters.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>In the model code, we want to avoid hard-coding parameters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1605,6 +1796,21 @@ How to construct DES as RAP?
 <li>May end up with duplicate scripts.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>So this means like hard coding them into the model functions themselves.</p>
+<hr>
+<p>It makes it really hard to change values, meaning you need to manually edit scripts, or to run scenarios, you might end up with duplicate scripts with different values.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1649,6 +1855,23 @@ How to construct DES as RAP?
 <li>❌ Not scalabale.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Global parameters are slightly better. These are no longer hidden in code, but are all defined at the start of the script.</p>
+<hr>
+<p>They exist outside the model logic, all in one place.</p>
+<hr>
+<p>However, they are still difficult to change for scenarios, and can become quite messy when there are lots of parameters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1671,6 +1894,23 @@ How to construct DES as RAP?
 <p>Either within script or from a file.</p>
 <p>Wide range of possibilities. Some examples…</p>
 </div>
+<aside class="notes">
+<p>We recommend it is better to have all parameters grouped in a dedicated object, and to pass that object explicitly to the model.</p>
+<hr>
+<p>This means each scenario has its own object with all the parameters needed. We have no global variables, so we don’t accidentally reuse old parameters in new scenarios. And we have fewer inputs, if we can pass all our parameters as a single object input to our model.</p>
+<hr>
+<p>We explore lots of possible ways to do this, both within scripts or importing from data files. Some examples…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1702,6 +1942,19 @@ How to construct DES as RAP?
 <span id="cb14-21"><a href=""></a>        <span class="va">self</span>.consultation_time <span class="op">=</span> consultation_time</span>
 <span id="cb14-22"><a href=""></a>        <span class="va">self</span>.transfer_prob <span class="op">=</span> transfer_prob</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<aside class="notes">
+<p>Here, a Python example with parameters defined as attributes in a class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1803,6 +2056,19 @@ How to construct DES as RAP?
 <span id="cb16-28"><a href=""></a>param <span class="op">=</span> CreateParameters(os.path.join(data_path, <span class="st">"example_parameters.json"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<aside class="notes">
+<p>Here, more complex nested parameters stored in a JSON file, and imported by a class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1814,6 +2080,24 @@ How to construct DES as RAP?
 <li><p>Accidental creation of new parameters</p></li>
 <li><p>Validate parameter values</p></li>
 </ul>
+<aside class="notes">
+<p>It’s good to incorporate defensive programming that tries to catch issues when your model runs, particularly around parameters.</p>
+<p>Two key things to catch here are:</p>
+<ul>
+<li><p>Accidentaly creation of new parameters - where you might mistype a parameter name, and not actually change the mean length of stay, as you misspelt it, so it runs with the old value, unknown to you.</p></li>
+<li><p>Parameter values - in expected format or range.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1821,6 +2105,19 @@ How to construct DES as RAP?
 <section>
 <section id="model-building" class="title-slide slide level1 center">
 <h1>Model building</h1>
+<aside class="notes">
+<p>Building the DES model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1833,6 +2130,19 @@ How to construct DES as RAP?
 <li>STARS Reproducibility Recommendations: Control randomness.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>We incorporate randomness into the model, but want to be able to control it, so we can get reproducible results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1840,10 +2150,25 @@ How to construct DES as RAP?
 <section id="randomness-1" class="slide level2">
 <h2>Randomness</h2>
 
+<img data-src="images/prng.png" class="r-stretch"><aside class="notes">
+<p>Computers can’t generate “true” randomness. Instead, they use pseudorandom number generators (PRNGs).</p>
+<p>These are algorithms that produce a sequence of numbers that appear random, but are actually determined by an initial starting point called a seed. If you don’t set a seed, they will use something that changes rapidly, like the current system time.</p>
+<p>For reproducible experiments, we want to set the seed, we we can recreate simulation results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/prng.png" class="r-stretch"></section>
+</section>
 <section id="randomness-python" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Randomness: Python</h2>
 <p><code>numpy</code></p>
@@ -1855,6 +2180,22 @@ How to construct DES as RAP?
 <div class="fragment">
 <p><code>sim-tools</code> can help with problem of shared random number generators.</p>
 </div>
+<aside class="notes">
+<p>In Python, <code>numpy</code> is widely used for this. We create a generator object - here called <code>rng</code>. We then use this when sampling.</p>
+<p>Another package from Tom Monks in our team is <code>sim-tools</code>, which uses <code>numpy</code> underneath the hood.</p>
+<hr>
+<p>We tend to use <code>sim-tools</code> in our work as it allows us to avoid the problem of shared random number generators.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1863,10 +2204,23 @@ How to construct DES as RAP?
 <h2 data-id="quarto-animate-title">Randomness: Python</h2>
 <p><code>sim-tools</code> can help with problem of shared random number generators.</p>
 
+<img data-src="images/shared_generators.png" class="r-stretch"><aside class="notes">
+<p>It’s a little complex to explain, so I won’t go over it now, but we walk through it in the book.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/shared_generators.png" class="r-stretch"></section>
+</section>
 <section id="randomness-r" class="slide level2">
 <h2>Randomness: R</h2>
 <p><code>stats</code></p>
@@ -1880,6 +2234,20 @@ How to construct DES as RAP?
 <span id="cb20-3"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1</span>L)</span>
 <span id="cb20-4"><a href=""></a>arrivals <span class="ot">&lt;-</span> <span class="fu">vexp</span>(<span class="at">n =</span> <span class="dv">3</span>L, <span class="at">rate =</span> <span class="dv">1</span>L <span class="sc">/</span> <span class="dv">3</span>L)</span>
 <span id="cb20-5"><a href=""></a>processing <span class="ot">&lt;-</span> <span class="fu">vnorm</span>(<span class="at">n =</span> <span class="dv">3</span>L, <span class="at">mean =</span> <span class="dv">10</span>L, <span class="at">sd =</span> <span class="dv">2</span>L)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>In R, the <code>stats</code> package is typically used for sampling from distributions.</p>
+<p>There is also a package called <code>simEd</code> which again avoids the shared generator problem - but we haven’t typically used it in our work, as we found it was slower than the <code>stats</code> package, and as the shared generator problem is not too big an issue either way, it’s just good to be aware of if you are sampling.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1896,6 +2264,23 @@ How to construct DES as RAP?
 <div class="fragment">
 <p><code>simpy</code> (Python) and <code>simmer</code> (R)</p>
 </div>
+<aside class="notes">
+<p>In the book, we walk through setting up a basic model incrementally, starting just with code that generates arrivals.</p>
+<hr>
+<p>We then add on resource usage.</p>
+<hr>
+<p>We use <code>simpy</code> (python) and <code>simmer</code> (R), which are the most popular DES packages in each language.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1903,10 +2288,23 @@ How to construct DES as RAP?
 <section id="initialisation-bias" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Initialisation bias</h2>
 
+<img data-src="images/initialisation_bias.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>When building the model, we need to deal with initialisation bias. This is when the model starts in an “empty” state that does not match how the real system normally operates.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/initialisation_bias.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="initialisation-bias-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Initialisation bias</h2>
 
@@ -1916,8 +2314,12 @@ How to construct DES as RAP?
 <li>Warm-up period: run model until it reaches a steady state.</li>
 </ul>
 <aside class="notes">
-<p>Initial conditions can be harder as require relevant data for determining appropriate start state.</p>
-<p>So in book, we show how to do warm-up period. With SimPy and with simmer - as both require quite different strategies.</p>
+<p>There are two main strategies:</p>
+<ol type="1">
+<li><p>Initial conditions - start the model with some entities or resources already present - though this can be difficult, as it requires relevant data for determining an appropriate starting state, and therefore, we focus on-</p></li>
+<li><p>Warm-up period - run the model for a while until it reaches a steady state, then begin collecting results from that point onwards.</p></li>
+</ol>
+<p>Implementing a warm-up period requires quite different strategies for <code>simpy</code> v.s., <code>simmer</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1937,10 +2339,23 @@ How to construct DES as RAP?
 <h2 data-id="quarto-animate-title">Initialisation bias</h2>
 <p>Time series inspection approach.</p>
 
+<img data-src="images/warm_up.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>We choose the length of the warm-up period using the time series inspection approach, looking at the cumulative mean for a given performance measure over time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/warm_up.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="initialisation-bias-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Initialisation bias</h2>
 <p>Time series inspection approach.</p>
@@ -1950,6 +2365,20 @@ How to construct DES as RAP?
 <li>Record performance measures at regular intervals.</li>
 <li>Run multiple replications and long run length.</li>
 </ul>
+<aside class="notes">
+<p>This requires that we are able to record performance measures at regular intervals during the model run.</p>
+<p>We need to run multiple replications and long run length too.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
@@ -1957,10 +2386,23 @@ How to construct DES as RAP?
 <section id="replications" class="slide level2">
 <h2>Replications</h2>
 
+<img data-src="images/varying_outputs.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!----------------------------------------------------------------------------
 ------------------------------- Next slide -----------------------------------
 ----------------------------------------------------------------------------->
-<img data-src="images/varying_outputs.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+</section>
 <section id="replications-1" class="slide level2">
 <h2>Replications</h2>
 <p>Confidence interval method - manual or automated.</p>
